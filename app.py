@@ -47,6 +47,12 @@ class RegistrationForm(FlaskForm):
                 Please choose a different one.""")
 
 
+class LoginForm(FlaskForm):
+    email = StringField('E-mail', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Sign In')
+
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -67,6 +73,12 @@ def register():
         mongo.db.users.insert_one(user)
         flash('Account has been created.', category='success')
     return render_template('register.html', form=form)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    return render_template('login.html', form=form)
 
 
 if __name__ == '__main__':
