@@ -1,0 +1,105 @@
+/* ================ Google Fonts ================ */
+
+/* ================ Generals ================ */
+
+.flashes {
+    width: 50%;
+    margin: 20px auto 0 auto;
+}
+
+section {
+    min-height: 800px;
+}
+
+/* ================ Nav ================ */
+
+.nav-bg {
+    background-color: #14ebeb;
+    min-height: 8vh;
+}
+
+.logo {
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #f55308;
+}
+
+.logo:hover {
+    color: #f55308;
+}
+
+.nav-link {
+    padding: .5rem 1.3rem!important;
+    color: #f55308;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    color: #f55308;
+}
+
+/* Code take it from stack overflow */
+
+.nav-link::after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    background-color: #f55308;
+    transition: width 0.5s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.nav-link:hover:after {
+    width: 80%; 
+    left: 0; 
+}
+/* /Code take it from stack overflow */
+
+.ml-auto {
+    margin-left: auto;
+}
+
+/* ================ Index ================ */
+
+/* ================ Login ================ */
+
+/* ================ Register ================ */
+
+/* ================ Footer ================ */
+.footer-site {
+    min-height: 8vh;
+    background-color: #14ebeb;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.social-links i {
+    font-size: 35px;
+    color: #1a1a1a;
+}
+
+.social-links:hover {
+    color: #1a1a1a;
+}
+
+.copyright p {
+    text-align: right;
+    font-size: 16px;
+    font-weight: 300;
+    padding-top: 10px;
+}
+
+.copyright p small {
+    font-weight: 400;
+}
