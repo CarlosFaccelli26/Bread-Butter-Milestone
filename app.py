@@ -1,5 +1,8 @@
 import os
-from flask import Flask, render_template, request, flash, session, redirect, url_for
+from flask import (
+    Flask, render_template,
+    request, flash, session,
+    redirect, url_for)
 from flask_pymongo import PyMongo
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
@@ -86,20 +89,23 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = mongo.db.users.find_one({'email': form.email.data})
-        print(user)
         if user and User.validate_login(user['password'], form.password.data):
             session['user'] = request.form.get('email')
             flash(
                 'Welcome, {}'.format(
                     request.form.get('email')), category='success')
             return redirect(url_for('index', username=session['user']))
-            print(session)
         else:
             flash('''Email or Password are incorrect.
                 Please try again.', category='danger''')
             return redirect(url_for('login'))
     return render_template('login.html', form=form)
 
+
+@app.route('/logout')
+def logout():
+    session.pop('user')
+    return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
