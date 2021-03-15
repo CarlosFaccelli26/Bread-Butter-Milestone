@@ -1,11 +1,11 @@
 import os
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, session, redirect, url_for
 from flask_pymongo import PyMongo
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import (
     DataRequired, Email, EqualTo, Length, ValidationError)
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists('env.py'):
     import env
 
@@ -53,6 +53,12 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 
+class User():
+    @staticmethod
+    def validate_login(hashed_password, password):
+        return check_password_hash(hashed_password, password)
+
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -78,7 +84,22 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        user = mongo.db.users.find_one({'email': form.email.data})
+        print(user)
+        if user and User.validate_login(user['password'], form.password.data):
+            session['user'] = request.form.get('email')
+            flash(
+                'Welcome, {}'.format(
+                    request.form.get('email')), category='success')
+            return redirect(url_for('index', username=session['user']))
+            print(session)
+        else:
+            flash('''Email or Password are incorrect.
+                Please try again.', category='danger''')
+            return redirect(url_for('login'))
     return render_template('login.html', form=form)
+
 
 
 if __name__ == '__main__':
