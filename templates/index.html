@@ -3,14 +3,54 @@
 Home
 {% endblock %}
 {% block content %}
-<h1>I'm extending base template</h1>
-{% for sandwich in sandwiches %}
-    {{ sandwich.sandwich_name }}<br>
-    {{ sandwich.sandwich_description }}<br>
-    {{ sandwich.sandwich_category }}<br>
-    {{ sandwich.imageUrl }}<br>
-    {{ sandwich.ingredients }}<br>
-    {{ sandwich.portion }}<br>
-    {{ sandwich.created_by }}<br>
-{% endfor %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="main-text">
+                    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur architecto maiores sunt a
+                        voluptate beatae, aliquid libero reiciendis eos iure adipisci similique earum ratione explicabo.
+                    </h1>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="small-text">
+                    <p>Lorem ipsum dolor sit amet consectetur. <a href="{{ url_for('register') }}"></a></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="hero">
+                    <h3>Lorem, ipsum dolor.</h3><br>
+                    <a href="">Add a Sandwich</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<main>
+    <div class="container">
+        <div class="row">
+            {% for sandwich in sandwiches %}
+            <div class="col-sm-12 col-md-4 col-lg-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ sandwich.imageUrl }}" class="card-img-top" alt="{{ sandwich.sandwich_name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ sandwich.sandwich_name }}
+                        </h5>
+                        <p class="card-text">
+                            {{ sandwich.sandwich_description }}
+                        </p>
+                        <small>
+                            {{ sandwich.created_by }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
 {% endblock %}
