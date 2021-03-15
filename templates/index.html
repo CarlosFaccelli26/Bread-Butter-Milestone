@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<h1>I'm extending base template</h1>
+{% for sandwich in sandwiches %}
+    {{ sandwich.sandwich_name }}<br>
+    {{ sandwich.sandwich_description }}<br>
+    {{ sandwich.sandwich_category }}<br>
+    {{ sandwich.imageUrl }}<br>
+    {{ sandwich.ingredients }}<br>
+    {{ sandwich.portion }}<br>
+    {{ sandwich.created_by }}<br>
+{% endfor %}
+{% endblock %}
