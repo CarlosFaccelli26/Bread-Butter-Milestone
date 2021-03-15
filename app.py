@@ -1,9 +1,11 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from flask_pymongo import PyMongo
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
+from wtforms.validators import (
+    DataRequired, Email, EqualTo, Length, ValidationError)
+from werkzeug.security import generate_password_hash
 if os.path.exists('env.py'):
     import env
 
@@ -52,9 +54,18 @@ def index():
     return render_template('index.html', sandwiches=sandwiches)
 
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
+    if form.validate_on_submit():
+        hashed_password = generate_password_hash(form.password.data)
+        user = {
+            'username': form.username.data,
+            'email': form.email.data,
+            'password': hashed_password
+        }
+        mongo.db.users.insert_one(user)
+        flash('Account has been created.', category='success')
     return render_template('register.html', form=form)
 
 
