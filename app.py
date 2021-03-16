@@ -4,6 +4,7 @@ from flask import (
     request, flash, session,
     redirect, url_for)
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 from flask_wtf import FlaskForm
 from wtforms import (
     StringField, PasswordField,
@@ -79,6 +80,20 @@ class AddSandwichForm(FlaskForm):
     submit = SubmitField('Add Sandwich')
 
 
+class EditSandwich(FlaskForm):
+    sandwich_category = SelectField(
+        'Sandwich Category', choices=[
+            ('Vegetarian'), ('Gluten Free'), ('Hot')])
+    sandwich_name = StringField(
+        'Sandwich Name', validators=[DataRequired(), Length(min=3, max=20)])
+    sandwich_description = TextAreaField(
+        'Sandwich Description', validators=[DataRequired()])
+    image_Url = StringField('Image Url', validators=[DataRequired()])
+    ingredients = StringField('Ingredients', validators=[DataRequired()])
+    portion = IntegerField('Portion', validators=[DataRequired()])
+    submit = SubmitField('Add Sandwich')
+
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -136,6 +151,7 @@ def add_sandwich():
                 'sandwich_name': form.sandwich_name.data,
                 'sandwich_description': form.sandwich_description.data,
                 'imageUrl': form.image_Url.data,
+                'ingredients': form.ingredients.data,
                 'portion': form.portion.data,
                 'created_by': session['user']
             }
@@ -151,6 +167,15 @@ def add_sandwich():
     else:
         flash('Please login', category='info')
         return redirect(url_for('login'))
+
+
+@app.route('/edit_sandwich/<sandwich_id>', methods=['GET', 'POST'])
+def edit_sandwich(sandwich_id):
+    if 'user' in session:
+        user = session['user']
+        form = EditSandwich()
+    return render_template(
+        'edit_sandwich.html', form=form, user=user)
 
 
 if __name__ == '__main__':
