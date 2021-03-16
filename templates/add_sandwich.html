@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block title %}
+Add Sandwich
+{% endblock %}
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form method="POST" action="{{ url_for('add_sandwich') }}">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <legend>Sign Up</legend>
+                        <!-- Sandwich Category -->
+                        <div class="form-group">
+                            {{ form.sandwich_category.label(class="form-control-label") }}
+                            <!-- Validation Sandwich Category input -->
+                            {% if form.sandwich_category.errors %}
+                                {{ form.sandwich_category(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.sandwich_category.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.sandwich_category(class="form-control form-control-lg") }}
+                            {% endif %}
+                            <!-- Validation Sandwich Category input -->
+                        </div>
+                        <!-- /Sandwich Category -->
+                        <!-- Sandwich Name -->
+                        <div class="form-group">
+                            {{ form.sandwich_name.label(class="form-control-label") }}
+                            <!-- Validation Sandiwch Name input -->
+                            {% if form.sandwich_name.errors %}
+                                {{ form.sandwich_name(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.sandwich_name.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.sandwich_name(class="form-control form-control-lg") }}
+                            {% endif %}
+                            <!-- Validation Sandiwch Name input -->
+                        </div>
+                        <!-- /Sandiwch Name -->
+                         <!-- Sandwich Description -->
+                        <div class="form-group">
+                            {{ form.sandwich_description.label(class="form-control-label") }}
+                            <!-- Validation Sandiwch Description input -->
+                            {% if form.sandwich_description.errors %}
+                                {{ form.sandwich_description(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.sandwich_description.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.sandwich_description(class="form-control form-control-lg") }}
+                            {% endif %}
+                            <!-- Validation Sandiwch Description input -->
+                        </div>
+                        <!-- /Sandiwch description -->
+                         <!-- Image Url -->
+                        <div class="form-group">
+                            {{ form.image_Url.label(class="form-control-label") }}
+                            <!-- Validation Image Url input -->
+                            {% if form.image_Url.errors %}
+                                {{ form.image_Url(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.image_Url.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.image_Url(class="form-control form-control-lg") }}
+                            {% endif %}
+                            <!-- Validation Image Url input -->
+                        </div>
+                        <!-- /Image Url -->
+                            <!-- Portion -->
+                        <div class="form-group">
+                            {{ form.portion.label(class="form-control-label") }}
+                            <!-- Validation Portion input -->
+                            {% if form.portion.errors %}
+                                {{ form.portion(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.portion.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.portion(class="form-control form-control-lg") }}
+                            {% endif %}
+                        <!-- Validation Portion input -->
+                        </div>
+                        <!-- /Portion -->
+                    </fieldset>
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-info") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

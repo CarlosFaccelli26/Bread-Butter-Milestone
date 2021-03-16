@@ -5,7 +5,10 @@ from flask import (
     redirect, url_for)
 from flask_pymongo import PyMongo
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import (
+    StringField, PasswordField,
+    SubmitField, SelectField,
+    IntegerField, TextAreaField)
 from wtforms.validators import (
     DataRequired, Email, EqualTo, Length, ValidationError)
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -62,6 +65,20 @@ class User():
         return check_password_hash(hashed_password, password)
 
 
+class AddSandwichForm(FlaskForm):
+    sandwich_category = SelectField(
+        'Sandwich Category', choices=[
+            ('Vegetarian'), ('Gluten Free'), ('Hot')])
+    sandwich_name = StringField(
+        'Sandwich Name', validators=[DataRequired(), Length(min=3, max=20)])
+    sandwich_description = TextAreaField(
+        'Sandwich Description', validators=[DataRequired()])
+    image_Url = StringField('Image Url', validators=[DataRequired()])
+    ingredients = StringField('Ingredients', validators=[DataRequired()])
+    portion = IntegerField('Portion', validators=[DataRequired()])
+    submit = SubmitField('Add Sandwich')
+
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -106,6 +123,12 @@ def login():
 def logout():
     session.pop('user')
     return redirect(url_for('login'))
+
+
+@app.route('/add_sandwich', methods=['GET', 'POST'])
+def add_sandwich():
+    form = AddSandwichForm()
+    return render_template('add_sandwich.html', form=form)
 
 
 if __name__ == '__main__':
