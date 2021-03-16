@@ -127,8 +127,30 @@ def logout():
 
 @app.route('/add_sandwich', methods=['GET', 'POST'])
 def add_sandwich():
-    form = AddSandwichForm()
-    return render_template('add_sandwich.html', form=form)
+    if 'user' in session:
+        user = session['user']
+        form = AddSandwichForm()
+        if request.method == 'POST':
+            sandwich = {
+                'sandwich_category': form.sandwich_category.data,
+                'sandwich_name': form.sandwich_name.data,
+                'sandwich_description': form.sandwich_description.data,
+                'imageUrl': form.image_Url.data,
+                'portion': form.portion.data,
+                'created_by': session['user']
+            }
+            mongo.db.sandwiches.insert_one(sandwich)
+            flash('Sandwich added Successfully', category='success')
+            return redirect(url_for('index'))
+
+        categories = mongo.db.categories.find().sort('sandwich_category', 1)
+        return render_template(
+            'add_sandwich.html',
+            form=form, user=user,
+            categories=categories)
+    else:
+        flash('Please login', category='info')
+        return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
