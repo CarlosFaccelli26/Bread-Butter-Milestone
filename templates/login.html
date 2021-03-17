@@ -11,21 +11,21 @@ Sign In
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
                         <legend>Sign Up</legend>
-                        <!-- Email -->
+                             <!-- Username -->
                         <div class="form-group">
-                            {{ form.email.label(class="form-control-label") }}
-                            <!-- Validation email input -->
-                            {% if form.email.errors %}
-                                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                            {{ form.username.label(class="form-control-label") }}
+                            <!-- Validation username input -->
+                            {% if form.username.errors %}
+                                {{ form.username(class="form-control form-control-lg is-invalid") }}
                                 <div class="invalid-feedback">
-                                    {% for error in form.email.errors %}
+                                    {% for error in form.username.errors %}
                                         <span>{{ error }}</span>
                                     {% endfor %}
                                 </div>
                             {% else %}
-                                {{ form.email(class="form-control form-control-lg") }}
+                                {{ form.username(class="form-control form-control-lg") }}
                             {% endif %}
-                            <!-- Validation email input -->
+                            <!-- Validation username input -->
                         </div>
                         <!-- Password -->
                         <div class="form-group">

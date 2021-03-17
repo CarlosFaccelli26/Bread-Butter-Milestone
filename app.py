@@ -41,7 +41,7 @@ def load_user(id):
 
 
 class User(UserMixin):
-    def __ini__(self, username, email, id):
+    def __ini__(self, username, id):
         self.id = id
         self.username = username
         self.email = None
@@ -76,32 +76,13 @@ class User(UserMixin):
         return db.users.find_one({'username': username})
 
     # get user from db
-    def get_user(self, email, password):
-        user_obj = mongo.db.users.find_one({'email': Email})
+    def get_user(self, username, password):
+        user_obj = mongo.db.users.find_one({
+            'username': username
+        })
         if user_obj is None or not check_password_hash(
                 user_obj.get('hashed_password'), password):
             return None
-        return User(email, str(user_obj['_id']))
-
-    # verify username
-    def verify_username(self, username):
-        return db.users.find_one({'username': username})
-
-    # verify email
-    def verify_email(self, email):
-        return db.users.find_one({'email': email})
-
-    # inster new user in db
-    def insert_new_user(self, username, email, password):
-        hashed_password = generate_password_hash(password)
-        return mongo.db.users.insert_one({
-            'username': username,
-            'email': email,
-            'hashed_password': hashed_password
-            })
-
-    def get_by_username(self, username):
-        user_obj = mongo.db.users.find_one({'username': username})
         return User(username, str(user_obj['_id']))
 
 
@@ -136,7 +117,7 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    email = StringField('E-mail', validators=[DataRequired(), Email()])
+    username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign In')
 
@@ -182,8 +163,12 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        register = User.insert_new_user(
-            None, form.username.data, form.email.data, form.password.data)
+        register = {
+            'username': form.username.data,
+            'email': form.email.data,
+            'password': form.password.data
+        }
+        mongo.db.users.insert_one(register)
         flash('Registration Complete. You are able to login',
               category='success')
         return redirect(url_for('login'))
@@ -196,15 +181,19 @@ def login():
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
-        email = form.email.data
+        username = form.username.data
+        print(username)
         password = form.password.data
-        user = User.get_user(None, email, password)
+        print(password)
+        user = User.get_user(None, password, username)
+        print(user)
         if user is None:
-            flash('Email or Password are incorrect. Please try again',
+            flash('Password or Email are incorrect. Please try again.',
                   category='danger')
             return redirect(url_for('login'))
-        # login the user
+
         login_user(user)
+        flash('Log in Successfull', category='success')
         return redirect(url_for('index'))
 
     return render_template('login.html', form=form)
