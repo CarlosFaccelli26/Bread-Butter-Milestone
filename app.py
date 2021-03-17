@@ -13,6 +13,13 @@ from wtforms import (
 from wtforms.validators import (
     DataRequired, Email, EqualTo, Length, ValidationError)
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import (
+    LoginManager,
+    UserMixin,
+    current_user,
+    login_user,
+    login_required,
+    logout_user)
 if os.path.exists('env.py'):
     import env
 
@@ -22,6 +29,80 @@ app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 app.secret_key = os.environ.get('SECRET_KEY')
 mongo = PyMongo(app)
+db = mongo.db
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+login_manager.login_message_category = 'info'
+
+
+@login_manager.user_loader
+def load_user(id):
+    return User.get(User, id)
+
+
+class User(UserMixin):
+    def __ini__(self, username, email, id):
+        self.id = id
+        self.username = username
+        self.email = None
+        self.hashed_password = None
+
+    def register(self, username, password):
+        return
+
+    # login function
+    def login(self):
+        username = request.args['username']
+        hashed_password = generate_password_hash(request.args['password'])
+        user = db.users.find_one(
+            {'username': username, 'hashed_password': hashed_password})
+        if user is None:
+            return redirect(url_for('register'))
+        return redirect(url_for('index'))
+
+    # setting password
+    def set_password(self, password):
+        self.hashed_password = generate_password_hash(password)
+
+    # checking if password matches
+    def check_password(self, password):
+        return check_password_hash(self.hashed_password, password)
+
+    def get(self, id):
+        user = db.users.find_one({'_id': ObjectId(id)})
+        return User(user['username'], user['_id'])
+
+    def find(self, username):
+        return db.users.find_one({'username': username})
+
+    # get user from db
+    def get_user(self, email, password):
+        user_obj = mongo.db.users.find_one({'email': Email})
+        if user_obj is None or not check_password_hash(
+                user_obj.get('hashed_password'), password):
+            return None
+        return User(email, str(user_obj['_id']))
+
+    # verify username
+    def verify_username(self, username):
+        return db.users.find_one({'username': username})
+
+    # verify email
+    def verify_email(self, email):
+        return db.users.find_one({'email': email})
+
+    # inster new user in db
+    def insert_new_user(self, username, email, password):
+        hashed_password = generate_password_hash(password)
+        return mongo.db.users.insert_one({
+            'username': username,
+            'email': email,
+            'hashed_password': hashed_password
+            })
+
+    def get_by_username(self, username):
+        user_obj = mongo.db.users.find_one({'username': username})
+        return User(username, str(user_obj['_id']))
 
 
 class RegistrationForm(FlaskForm):
@@ -58,12 +139,6 @@ class LoginForm(FlaskForm):
     email = StringField('E-mail', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign In')
-
-
-class User():
-    @staticmethod
-    def validate_login(hashed_password, password):
-        return check_password_hash(hashed_password, password)
 
 
 class AddSandwichForm(FlaskForm):
@@ -103,79 +178,52 @@ def index():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        hashed_password = generate_password_hash(form.password.data)
-        user = {
-            'username': form.username.data,
-            'email': form.email.data,
-            'password': hashed_password
-        }
-        mongo.db.users.insert_one(user)
-        flash('Account has been created.', category='success')
+        register = User.insert_new_user(
+            None, form.username.data, form.email.data, form.password.data)
+        flash('Registration Complete. You are able to login',
+              category='success')
+        return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = mongo.db.users.find_one({'email': form.email.data})
-        if user and User.validate_login(user['password'], form.password.data):
-            session['user'] = request.form.get('email')
-            flash(
-                'Welcome, {}'.format(
-                    request.form.get('email')), category='success')
-            return redirect(url_for('index', username=session['user']))
-        else:
-            flash('''Email or Password are incorrect.
-                Please try again.', category='danger''')
+        email = form.email.data
+        password = form.password.data
+        user = User.get_user(None, email, password)
+        if user is None:
+            flash('Email or Password are incorrect. Please try again',
+                  category='danger')
             return redirect(url_for('login'))
+        # login the user
+        login_user(user)
+        return redirect(url_for('index'))
+
     return render_template('login.html', form=form)
 
 
 @app.route('/logout')
+@login_required
 def logout():
-    session.pop('user')
+    logout_user()
     return redirect(url_for('login'))
 
 
 @app.route('/add_sandwich', methods=['GET', 'POST'])
+@login_required
 def add_sandwich():
-    if 'user' in session:
-        user = session['user']
-        form = AddSandwichForm()
-        if request.method == 'POST':
-            sandwich = {
-                'sandwich_category': form.sandwich_category.data,
-                'sandwich_name': form.sandwich_name.data,
-                'sandwich_description': form.sandwich_description.data,
-                'imageUrl': form.image_Url.data,
-                'ingredients': form.ingredients.data,
-                'portion': form.portion.data,
-                'created_by': session['user']
-            }
-            mongo.db.sandwiches.insert_one(sandwich)
-            flash('Sandwich added Successfully', category='success')
-            return redirect(url_for('index'))
-
-        categories = mongo.db.categories.find().sort('sandwich_category', 1)
-        return render_template(
-            'add_sandwich.html',
-            form=form, user=user,
-            categories=categories)
-    else:
-        flash('Please login', category='info')
-        return redirect(url_for('login'))
-
-
-@app.route('/edit_sandwich/<sandwich_id>', methods=['GET', 'POST'])
-def edit_sandwich(sandwich_id):
-    if 'user' in session:
-        user = session['user']
-        form = EditSandwich()
+    form = AddSandwichForm()
     return render_template(
-        'edit_sandwich.html', form=form, user=user)
+            'add_sandwich.html',
+            form=form)
 
 
 if __name__ == '__main__':
