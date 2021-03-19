@@ -167,7 +167,8 @@ def login():
             login_user(user_obj)
             print(user_obj)
             flash('Logged in Successfully', category='success')
-            return redirect(url_for('index'))
+            next = request.args.get('next')
+            return redirect(next or url_for('index'))
         else:
             flash('Username or Email are incorrect', category='danger')
     return render_template('login.html', form=form)
