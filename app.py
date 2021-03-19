@@ -185,6 +185,19 @@ def logout():
 @login_required
 def add_sandwich():
     form = AddSandwichForm()
+    if form.validate_on_submit():
+        sandwich = {
+            'sandwich_category': form.sandwich_category.data,
+            'sandwich_name': form.sandwich_name.data,
+            'sandwich_description': form.sandwich_description.data,
+            'imageUrl': form.image_Url.data,
+            'ingredients': form.ingredients.data,
+            'portion': form.portion.data,
+            'created_by': current_user.username
+        }
+        mongo.db.sandwiches.insert_one(sandwich)
+        flash('Sandwich Added.', category='success')
+        return redirect(url_for('index'))
     return render_template(
             'add_sandwich.html',
             form=form)
