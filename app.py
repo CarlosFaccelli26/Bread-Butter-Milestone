@@ -36,54 +36,34 @@ login_manager.login_message_category = 'info'
 
 
 @login_manager.user_loader
-def load_user(id):
-    return User.get(User, id)
+def load_user(username):
+    user = mongo.db.users.find_one({'username': username})
+    if not user:
+        return None
+    return User(user['username'], user['email'], user['_id'])
 
 
 class User(UserMixin):
-    def __ini__(self, username, id):
-        self.id = id
+    def __init__(self, username, email, _id):
         self.username = username
-        self.email = None
-        self.hashed_password = None
+        self.email = email
+        self._id = _id
 
-    def register(self, username, password):
-        return
+    def is_authenticated(self):
+        return True
 
-    # login function
-    def login(self):
-        username = request.args['username']
-        hashed_password = generate_password_hash(request.args['password'])
-        user = db.users.find_one(
-            {'username': username, 'hashed_password': hashed_password})
-        if user is None:
-            return redirect(url_for('register'))
-        return redirect(url_for('index'))
+    def is_active(self):
+        return True
 
-    # setting password
-    def set_password(self, password):
-        self.hashed_password = generate_password_hash(password)
+    def is_anonymous(self):
+        return False
 
-    # checking if password matches
-    def check_password(self, password):
-        return check_password_hash(self.hashed_password, password)
+    def get_id(self):
+        return self.username
 
-    def get(self, id):
-        user = db.users.find_one({'_id': ObjectId(id)})
-        return User(user['username'], user['_id'])
-
-    def find(self, username):
-        return db.users.find_one({'username': username})
-
-    # get user from db
-    def get_user(self, username, password):
-        user_obj = mongo.db.users.find_one({
-            'username': username
-        })
-        if user_obj is None or not check_password_hash(
-                user_obj.get('hashed_password'), password):
-            return None
-        return User(username, str(user_obj['_id']))
+    @staticmethod
+    def check_password(hashed_password, password):
+        return check_password_hash(hashed_password, password)
 
 
 class RegistrationForm(FlaskForm):
@@ -163,14 +143,14 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        register = {
+        hashed_password = generate_password_hash(form.password.data)
+        mongo.db.users.insert_one({
             'username': form.username.data,
             'email': form.email.data,
-            'password': form.password.data
-        }
-        mongo.db.users.insert_one(register)
-        flash('Registration Complete. You are able to login',
-              category='success')
+            'password': hashed_password
+        })
+        flash(
+            'Registration successfully. You are able to login.', category='success')
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
@@ -181,21 +161,15 @@ def login():
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
-        username = form.username.data
-        print(username)
-        password = form.password.data
-        print(password)
-        user = User.get_user(None, password, username)
-        print(user)
-        if user is None:
-            flash('Password or Email are incorrect. Please try again.',
-                  category='danger')
-            return redirect(url_for('login'))
-
-        login_user(user)
-        flash('Log in Successfull', category='success')
-        return redirect(url_for('index'))
-
+        user = mongo.db.users.find_one({'username': form.username.data})
+        if user and User.check_password(user['password'], form.password.data):
+            user_obj = User(user['username'], user['email'], user['_id'])
+            login_user(user_obj)
+            print(user_obj)
+            flash('Logged in Successfully', category='success')
+            return redirect(url_for('index'))
+        else:
+            flash('Username or Email are incorrect', category='danger')
     return render_template('login.html', form=form)
 
 
