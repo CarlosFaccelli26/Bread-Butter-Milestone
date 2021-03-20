@@ -2,6 +2,10 @@
 
 /* ================ Generals ================ */
 
+body {
+    font-size: 18px;
+}
+
 .flashes {
     width: 50%;
     margin: 20px auto 0 auto;
@@ -49,6 +53,21 @@ label {
     color: #f55308;
 }
 
+.info {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.info a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: all .5s ease-in-out;
+}
+
+.info a:hover {
+    color: #f55308;
+}
+
 /* ================ Nav ================ */
 
 .nav-bg {
@@ -72,6 +91,7 @@ label {
     color: #f55308;
     position: relative;
     display: inline-block;
+    font-size: 16px;
 }
 
 .nav-link:hover {
