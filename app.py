@@ -240,6 +240,13 @@ def edit_sandwich(sandwich_id):
     return render_template('edit_sandwich.html', form=form, sandwich=sandwich)
 
 
+@app.route('/delete_sandwich/<sandwich_id>', methods=['GET', 'POST'])
+def delete_sandwich(sandwich_id):
+    mongo.db.sandwiches.remove({'_id': ObjectId(sandwich_id)})
+    flash('Sandwich Deleted', 'success')
+    return redirect(url_for('index'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
