@@ -37,9 +37,7 @@ Home
                 <div class="card" style="width: 18rem;">
                     <img src="{{ sandwich.imageUrl }}" class="card-img-top" alt="{{ sandwich.sandwich_name }}">
                     <div class="card-body">
-                        <h5 class="card-title">
-                            {{ sandwich.sandwich_name }}
-                        </h5>
+                            <a class="card-title" href="{{ url_for('sandwich', sandwich_id=sandwich._id) }}">{{ sandwich.sandwich_name }}</a>
                         <p class="card-text">
                             {{ sandwich.sandwich_description }}
                         </p>

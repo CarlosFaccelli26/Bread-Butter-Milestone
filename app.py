@@ -2,7 +2,8 @@ import os
 from flask import (
     Flask, render_template,
     request, flash, session,
-    redirect, url_for)
+    redirect, url_for,
+    abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_wtf import FlaskForm
@@ -201,6 +202,13 @@ def add_sandwich():
     return render_template(
             'add_sandwich.html',
             form=form)
+
+
+@app.route('/sandwich/<sandwich_id>')
+def sandwich(sandwich_id):
+    sandwich = mongo.db.sandwiches.find_one(
+        {'_id': ObjectId(sandwich_id)})
+    return render_template('sandwich.html', sandwich=sandwich)
 
 
 if __name__ == '__main__':
