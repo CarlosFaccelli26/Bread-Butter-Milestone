@@ -205,10 +205,19 @@ def add_sandwich():
 
 
 @app.route('/sandwich/<sandwich_id>')
+@login_required
 def sandwich(sandwich_id):
     sandwich = mongo.db.sandwiches.find_one(
         {'_id': ObjectId(sandwich_id)})
     return render_template('sandwich.html', sandwich=sandwich)
+
+
+@app.route('/edit_sandwich/<sandwich_id>', methods=['GET', 'POST'])
+@login_required
+def edit_sandwich(sandwich_id):
+    form = AddSandwichForm()
+    sandwich = mongo.db.sandwiches.find_one({'_id': ObjectId(sandwich_id)})
+    return render_template('edit_sandwich.html', form=form, sandwich=sandwich)
 
 
 if __name__ == '__main__':

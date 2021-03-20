@@ -10,7 +10,7 @@ Edit Sandwich
                 <form method="POST" action="{{ url_for('add_sandwich') }}">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
-                        <legend>Sign Up</legend>
+                        <legend>Update Sandwich</legend>
                         <!-- Sandwich Category -->
                         <div class="form-group">
                             {{ form.sandwich_category.label(class="form-control-label") }}
@@ -79,6 +79,23 @@ Edit Sandwich
                             <!-- Validation Image Url input -->
                         </div>
                         <!-- /Image Url -->
+                            <!-- Ingredients -->
+                        <div class="form-group">
+                            {{ form.ingredients.label(class="form-control-label") }}
+                            <!-- Validation Image Url input -->
+                            {% if form.ingredients.errors %}
+                                {{ form.ingredients(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.ingredients.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.ingredients(class="form-control form-control-lg") }}
+                            {% endif %}
+                            <!-- Validation Ingredients input -->
+                        </div>
+                            <!-- /Ingredients -->
                             <!-- Portion -->
                         <div class="form-group">
                             {{ form.portion.label(class="form-control-label") }}

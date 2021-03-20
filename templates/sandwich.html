@@ -16,7 +16,7 @@ Sandwich
         <li class="list-group-item">{{ sandwich.created_by }}</li>
     </ul>
     <div class="card-body">
-        <a href="#" class="btn btn-info">Edit</a>
+        <a href="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}" class="btn btn-info">Edit</a>
         <a href="#" class="btn btn-danger">Delete</a>
     </div>
 </div>
