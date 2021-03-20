@@ -3,41 +3,61 @@
 Sandwich
 {% endblock %}
 {% block content %}
-<section>
-    <div class="card" style="width: 18rem;">
-        <img src="{{ sandwich.imageUrl }}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ sandwich.sandwich_name }}</h5>
-            <p class="card-text">{{ sandwich.sandwich_category }}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{ sandwich.ingredients }}</li>
-            <li class="list-group-item">{{ sandwich.portion }}</li>
-            <li class="list-group-item">{{ sandwich.created_by }}</li>
-        </ul>
-        {% if sandwich.created_by == current_user.username %}
-            <div class="card-body">
-                <a href="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}" class="btn btn-info btn-sm">Edit</a>
-                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+<section class="sandwich">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="info-sandwich">
+                    <h3>
+                        {{ sandwich.sandwich_name }}
+                    </h3>
+                    <p>
+                        <small>created by: {{ sandwich.created_by }}</small>
+                    </p>
+                </div>
             </div>
-        {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <img src="{{ sandwich.imageUrl }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ sandwich.sandwich_name }}</h5>
+                        <p class="card-text">{{ sandwich.sandwich_category }}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{ sandwich.ingredients }}</li>
+                        <li class="list-group-item">{{ sandwich.portion }}</li>
+                        <li class="list-group-item">{{ sandwich.created_by }}</li>
+                    </ul>
+                    {% if sandwich.created_by == current_user.username %}
+                        <div class="card-body card-body-btn">
+                            <a href="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}"
+                                class="btn btn-info btn-sm">Edit</a>
+                            <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#deleteModal">Delete</button>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-    <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Sure you want yo Delete?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                    <form action="{{ url_for('delete_sandwich', sandwich_id=sandwich._id) }}">
-                        <input class="btn btn-danger" type="submit" value="Delete">
-                    </form>
-                </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Sure you want yo Delete?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                <form action="{{ url_for('delete_sandwich', sandwich_id=sandwich._id) }}">
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                </form>
             </div>
         </div>
+    </div>
 </div>
 {% endblock %}
