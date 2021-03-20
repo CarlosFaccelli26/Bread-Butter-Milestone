@@ -114,7 +114,7 @@ class AddSandwichForm(FlaskForm):
     image_Url = StringField('Image Url', validators=[DataRequired()])
     ingredients = StringField('Ingredients', validators=[DataRequired()])
     portion = IntegerField('Portion', validators=[DataRequired()])
-    submit = SubmitField('Add Sandwich')
+    submit = SubmitField('Add')
 
 
 class EditSandwich(FlaskForm):
@@ -128,7 +128,7 @@ class EditSandwich(FlaskForm):
     image_Url = StringField('Image Url', validators=[DataRequired()])
     ingredients = StringField('Ingredients', validators=[DataRequired()])
     portion = IntegerField('Portion', validators=[DataRequired()])
-    submit = SubmitField('Add Sandwich')
+    submit = SubmitField('Update')
 
 
 @app.route('/')
@@ -215,8 +215,14 @@ def sandwich(sandwich_id):
 @app.route('/edit_sandwich/<sandwich_id>', methods=['GET', 'POST'])
 @login_required
 def edit_sandwich(sandwich_id):
-    form = AddSandwichForm()
     sandwich = mongo.db.sandwiches.find_one({'_id': ObjectId(sandwich_id)})
+    form = EditSandwich()
+    if request.method == 'GET':
+        form.sandwich_name.data = sandwich['sandwich_name']
+        form.sandwich_description.data = sandwich['sandwich_description']
+        form.image_Url.data = sandwich['imageUrl']
+        form.ingredients.data = sandwich['ingredients']
+        form.portion.data = sandwich['portion']
     return render_template('edit_sandwich.html', form=form, sandwich=sandwich)
 
 
