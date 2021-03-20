@@ -7,7 +7,7 @@ Edit Sandwich
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form method="POST" action="{{ url_for('add_sandwich') }}">
+                <form method="POST" action="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
                         <legend>Update Sandwich</legend>

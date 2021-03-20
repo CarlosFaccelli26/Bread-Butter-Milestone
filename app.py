@@ -215,8 +215,22 @@ def sandwich(sandwich_id):
 @app.route('/edit_sandwich/<sandwich_id>', methods=['GET', 'POST'])
 @login_required
 def edit_sandwich(sandwich_id):
-    sandwich = mongo.db.sandwiches.find_one({'_id': ObjectId(sandwich_id)})
     form = EditSandwich()
+    sandwich = mongo.db.sandwiches.find_one({'_id': ObjectId(sandwich_id)})
+    if request.method == 'POST':
+        submit = {
+            'sandwich_category': form.sandwich_category.data,
+            'sandwich_name': form.sandwich_name.data,
+            'sandwich_description': form.sandwich_description.data,
+            'imageUrl': form.image_Url.data,
+            'ingredients': form.ingredients.data,
+            'portion': form.portion.data,
+            'created_by': current_user.username
+        }
+        print(submit)
+        mongo.db.sandwiches.update({'_id': ObjectId(sandwich_id)}, submit)
+        flash('Sandwich Updated', category='success')
+        return redirect(url_for('sandwich', sandwich_id=sandwich_id))
     if request.method == 'GET':
         form.sandwich_name.data = sandwich['sandwich_name']
         form.sandwich_description.data = sandwich['sandwich_description']
