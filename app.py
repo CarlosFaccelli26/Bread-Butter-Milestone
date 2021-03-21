@@ -134,7 +134,7 @@ class EditSandwich(FlaskForm):
 @app.route('/')
 @app.route('/index')
 def index():
-    sandwiches = mongo.db.sandwiches.find()
+    sandwiches = list(mongo.db.sandwiches.find())
     return render_template('index.html', sandwiches=sandwiches)
 
 

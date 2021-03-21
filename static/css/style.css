@@ -240,6 +240,23 @@ label {
   border: 1px solid #f55308;
 }
 
+.btn-sandwich {
+    background-color: #f55308;
+    padding: .5rem .8rem;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    margin: 20px 0 20px 50%;
+    transform: translateX(-50%);
+    transition: all .5s ease-in-out;
+}
+
+.btn-sandwich:hover {
+    border: 1px solid #f55308;
+    color: #f55308;
+    background-color: #fff;
+}
+
 /* ================ Sandwich ================ */
 
 .info-sandwich h3 {
