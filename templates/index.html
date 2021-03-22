@@ -23,7 +23,7 @@ Home
             <div class="col-12">
                 <div class="hero">
                     <h3>Lorem, ipsum dolor.</h3><br>
-                    <a href="">Add a Sandwich</a>
+                    <a href="{{ url_for('add_sandwich') }}">Add a Sandwich</a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@ Home
             {% endfor %}
         </div>
         {% if sandwiches|length >= 8 %}
-            <a href="#" class="btn btn-sandwich">
+            <a href="{{ url_for('all_sandwich') }}" class="btn btn-sandwich">
                 Wanna See More?
             </a>
         {% else %}

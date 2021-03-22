@@ -1,9 +1,8 @@
 import os
 from flask import (
     Flask, render_template,
-    request, flash, session,
-    redirect, url_for,
-    abort)
+    request, flash,
+    redirect, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_wtf import FlaskForm
@@ -150,8 +149,8 @@ def register():
             'email': form.email.data,
             'password': hashed_password
         })
-        flash(
-            'Registration successfully. You are able to login.', category='success')
+        flash('Registration successfully. You are able to login.',
+              category='success')
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
@@ -166,7 +165,6 @@ def login():
         if user and User.check_password(user['password'], form.password.data):
             user_obj = User(user['username'], user['email'], user['_id'])
             login_user(user_obj)
-            print(user_obj)
             flash('Logged in Successfully', category='success')
             next = request.args.get('next')
             return redirect(next or url_for('index'))
@@ -227,7 +225,6 @@ def edit_sandwich(sandwich_id):
             'portion': form.portion.data,
             'created_by': current_user.username
         }
-        print(submit)
         mongo.db.sandwiches.update({'_id': ObjectId(sandwich_id)}, submit)
         flash('Sandwich Updated', category='success')
         return redirect(url_for('sandwich', sandwich_id=sandwich_id))
@@ -245,6 +242,13 @@ def delete_sandwich(sandwich_id):
     mongo.db.sandwiches.remove({'_id': ObjectId(sandwich_id)})
     flash('Sandwich Deleted', 'success')
     return redirect(url_for('index'))
+
+
+@app.route('/all_sandwich')
+@login_required
+def all_sandwich():
+    sandwiches = list(mongo.db.sandwiches.find())
+    return render_template('all_sandwich.html', sandwiches=sandwiches)
 
 
 if __name__ == '__main__':
