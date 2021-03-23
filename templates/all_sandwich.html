@@ -13,6 +13,7 @@ See All What We Have
             </div>
         </div>
         <div class="row">
+            {{ pagination.links }}
             {% for sandwich in sandwiches %}
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="card-sandwich mb-3" style="max-width: 540px;">
@@ -33,6 +34,8 @@ See All What We Have
             </div>
             {% endfor %}
         </div>
+        {{ pagination.info }}
+        {{ pagination.links }}
     </div>
 </section>
 {% endblock %}

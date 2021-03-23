@@ -5,6 +5,7 @@ from flask import (
     redirect, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_paginate import Pagination, get_page_args
 from flask_wtf import FlaskForm
 from wtforms import (
     StringField, PasswordField,
@@ -247,8 +248,30 @@ def delete_sandwich(sandwich_id):
 @app.route('/all_sandwich')
 @login_required
 def all_sandwich():
-    sandwiches = list(mongo.db.sandwiches.find())
-    return render_template('all_sandwich.html', sandwiches=sandwiches)
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page'
+    )
+    # how many sadnwiches will be display
+    per_page = 4
+
+    # get total of sandwiches
+    total = mongo.db.sandwiches.count()
+
+    # get all sandwiches
+    sandwiches = mongo.db.sandiwches.find()
+
+    # paginate sandwiches
+    sandwich_pagination = sandwiches[offset: offset + per_page]
+
+    pagination = Pagination(
+        page=page, per_page=per_page, total=total, css_framework='bootstrap4'
+    )
+    return render_template("all_sandwich.html",
+                           sandwiches=sandwiches,
+                           page=page,
+                           per_page=per_page,
+                           sandwich_pagination=sandwich_pagination,
+                           pagination=pagination)
 
 
 if __name__ == '__main__':
