@@ -134,7 +134,7 @@ class EditSandwich(FlaskForm):
 @app.route('/')
 @app.route('/index')
 def index():
-    sandwiches = list(mongo.db.sandwiches.find())
+    sandwiches = list(mongo.db.sandwiches.find().limit(8))
     return render_template('index.html', sandwiches=sandwiches)
 
 
@@ -251,22 +251,22 @@ def all_sandwich():
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page'
     )
-    # how many sadnwiches will be display
-    per_page = 4
+    # per_page = 8
+    # offset = page * per_page
 
-    # get total of sandwiches
-    total = mongo.db.sandwiches.count()
+    total = mongo.db.sandwiches.find().count()
 
-    # get all sandwiches
-    sandwiches = mongo.db.sandiwches.find()
+    sandwiches = mongo.db.sandwiches.find()
 
-    # paginate sandwiches
     sandwich_pagination = sandwiches[offset: offset + per_page]
+    print(sandwich_pagination)
 
-    pagination = Pagination(
-        page=page, per_page=per_page, total=total, css_framework='bootstrap4'
-    )
-    return render_template("all_sandwich.html",
+    pagination = Pagination(page=page,
+                            per_page=per_page,
+                            total=total,
+                            css_framework='bootstrap4')
+
+    return render_template('all_sandwich.html',
                            sandwiches=sandwiches,
                            page=page,
                            per_page=per_page,
