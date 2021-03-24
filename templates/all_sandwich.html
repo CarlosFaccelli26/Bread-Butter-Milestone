@@ -13,7 +13,7 @@ See All What We Have
             </div>
         </div>
         <div class="row">
-            {{ pagination.links }}
+            {{ pagination.info }}
             {% for sandwich in sandwiches %}
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="card-sandwich mb-3" style="max-width: 540px;">
@@ -23,7 +23,10 @@ See All What We Have
                         </div>
                         <div class="col-md-7">
                             <div class="card-body-sandwich">
-                                <h5 class="card-title">{{ sandwich.sandwich_name }}</h5>
+                                <a href="{{ url_for('sandwich', sandwich_id=sandwich._id) }}">
+                                    <h5 class="card-title">{{ sandwich.sandwich_name }}</h5>
+                                </a>
+                                
                                 <p class="card-text">{{ sandwich.sandwich_category }}</p>
                                 <p class="card-text">{{ sandwich.sandwich_description }}</p>
                                 <p class="card-text"><small class="text-muted">{{ sandwich.created_by }}</small></p>
