@@ -261,16 +261,55 @@ label {
     text-transform: capitalize;
 }
 
-.sandwich .card {
-    width: 500px;
-    height: auto;
-    margin: 50px auto 0 auto;
+.sandwich {
+    position: relative;
+    min-height: 400px;
 }
 
-.card .img-sandwich {
-    height: 300px;
+.sandwich img {
     width: 100%;
 }
+
+.overlay {
+    position: absolute;
+    display: none;
+    width: fit-content;
+    height: fit-content;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.527);
+    box-shadow: 1px 4px 14px 20px #fff;
+    border-radius: 12px;
+    color: #fff;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* /code from w3School */
+
+.btn--info {
+    background-color: #f55308;
+    color: #fff;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: .5rem 1.3rem;
+    text-transform: uppercase;
+    border-radius: 10px;
+    transition: all .5s ease-in-out;
+}
+
+.btn--info:hover {
+    border: 1px solid #f55308;
+    background-color: #fff;
+    color: #f55308;
+}
+
 
 .modal-open {
     background-color: #0c0c0c52;

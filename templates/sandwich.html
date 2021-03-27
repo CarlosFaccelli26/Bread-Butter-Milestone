@@ -19,26 +19,26 @@ Sandwich
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="card">
-                    <img src="{{ sandwich.imageUrl }}" class="card-img-top img-sandwich" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ sandwich.sandwich_name }}</h5>
-                        <p class="card-text">{{ sandwich.sandwich_category }}</p>
+                <div class="sandwich">
+                    <img src="{{ sandwich.imageUrl }}" alt="">
+                    <button class="btn btn--info" onclick="on()">
+                        info
+                    </button>
+                    <div class="overlay" id="overlay" onclick="off()">
+                        <h3>{{ sandwich.sandwich_name }}</h3>
+                        <p>{{ sandwich.sandwich_category }}</p>
+                        <p>{{ sandwich.sandwich_description }}</p>
+                        <p>{{ sandwich.portion }}</p>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{ sandwich.ingredients }}</li>
-                        <li class="list-group-item">{{ sandwich.portion }}</li>
-                        <li class="list-group-item">{{ sandwich.created_by }}</li>
-                    </ul>
-                    {% if sandwich.created_by == current_user.username %}
-                        <div class="card-body card-body-btn">
-                            <a href="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}"
-                                class="btn btn-info btn-sm">Edit</a>
-                            <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal">Delete</button>
-                        </div>
-                    {% endif %}
                 </div>
+                {% if sandwich.created_by == current_user.username %}
+                    <div class="card-body card-body-btn text-center">
+                        <a href="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}"
+                                class="btn btn-info btn-lg">Edit</a>
+                        <button class="btn btn-danger btn-lg" data-bs-toggle="modal"
+                                data-bs-target="#deleteModal">Delete</button>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
