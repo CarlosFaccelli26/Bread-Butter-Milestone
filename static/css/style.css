@@ -71,7 +71,7 @@ label {
 /* ================ Nav ================ */
 
 .nav-bg {
-    background-color: #14ebeb;
+    background-color: #000;
     min-height: 8vh;
 }
 
@@ -359,7 +359,7 @@ label {
 /* ================ Footer ================ */
 .footer-site {
     min-height: 8vh;
-    background-color: #14ebeb;
+    background-color: #000;
     display: flex;
     align-items: center;
 }
@@ -378,7 +378,7 @@ label {
 }
 
 .social-links i:hover {
-    color: #1a1a1a;
+    color: #fff;
 }
 
 .copyright p {
@@ -386,6 +386,7 @@ label {
     font-size: 16px;
     font-weight: 300;
     padding-top: 10px;
+    color: #fff;
 }
 
 .copyright p small {
