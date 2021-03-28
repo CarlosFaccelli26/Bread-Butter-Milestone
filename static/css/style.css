@@ -91,6 +91,22 @@ label {
     letter-spacing: 1px;
     font-weight: bold;
     color: #f55308;
+	position: relative;
+	line-height: 50px;
+}
+
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+}
+
+.bounce { 
+    -webkit-animation-name: bounce; 
+    animation-name: bounce; 
 }
 
 .logo:hover {
@@ -484,3 +500,15 @@ figure:hover::before {
     opacity: 0;
   }
 }
+
+@-webkit-keyframes bounce { 
+    0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
+    40% {-webkit-transform: translateY(-30px);} 
+    60% {-webkit-transform: translateY(-15px);} 
+} 
+
+@keyframes bounce { 
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+    40% {transform: translateY(-30px);} 
+    60% {transform: translateY(-15px);} 
+} 
