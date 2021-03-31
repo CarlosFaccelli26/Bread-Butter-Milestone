@@ -22,9 +22,9 @@ section {
 
 .forms {
     background-color: #000;
-    background-image: -webkit-linear-gradient(-142deg, #000000 76%, #ffffff 79%);
-    background-image:    -moz-linear-gradient(-142deg, #000000 76%, #ffffff 79%);
-    background-image:     -ms-linear-gradient(-142deg, #000000 76%, #ffffff 79%);
+    background-image: -webkit-linear-gradient(57deg, #000000 38%, #ffffff 32%);
+    background-image:    -moz-linear-gradient(57deg, #000000 38%, #ffffff 32%);
+    background-image:     -ms-linear-gradient(57deg, #000000 38%, #ffffff 32%);
 }
 
 fieldset {
