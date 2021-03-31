@@ -69,12 +69,14 @@ label {
 .info {
     text-align: center;
     margin: 20px 0;
-    color: #fff;
+    color: #f55308;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline;
 }
 
 .info a {
-    color: #fff;
-    text-decoration: none;
+    color: #f55308;
     transition: all .5s ease-in-out;
 }
 
