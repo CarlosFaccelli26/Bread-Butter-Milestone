@@ -4,7 +4,7 @@ Sandwich
 {% endblock %}
 {% block content %}
 <section class="sandwich">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="info-sandwich">
@@ -18,27 +18,27 @@ Sandwich
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-                <div class="sandwich">
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                <div class="sandwich-img">
                     <img src="{{ sandwich.imageUrl }}" alt="">
-                    <button class="btn btn--info" onclick="on()">
-                        info
-                    </button>
-                    <div class="overlay" id="overlay" onclick="off()">
-                        <h3>{{ sandwich.sandwich_name }}</h3>
-                        <p>{{ sandwich.sandwich_category }}</p>
-                        <p>{{ sandwich.sandwich_description }}</p>
-                        <p>{{ sandwich.portion }}</p>
-                    </div>
                 </div>
-                {% if sandwich.created_by == current_user.username %}
-                    <div class="card-body card-body-btn text-center">
-                        <a href="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}"
-                                class="btn btn-info btn-lg">Edit</a>
-                        <button class="btn btn-danger btn-lg" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal">Delete</button>
-                    </div>
-                {% endif %}
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <aside class="sandwich-description">
+                    <h3>{{ sandwich.sandwich_name }}</h3>
+                    <p>{{ sandwich.sandwich_category }}</p>
+                    <p>{{ sandwich.sandwich_description }}</p>
+                    <p>{{ sandwich.ingredients }}</p>
+                    <p>{{ sandwich.portion }}</p>
+                    {% if sandwich.created_by == current_user.username %}
+                        <div class="options">
+                            <a href="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}"
+                                    class="btn btn-info btn-lg">Edit</a>
+                            <button class="btn btn-danger btn-lg" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal">Delete</button>
+                        </div>
+                    {% endif %}
+                </aside>
             </div>
         </div>
     </div>

@@ -314,6 +314,11 @@ figure:hover::before {
 }
 
 /* ================ Sandwich ================ */
+.sandwich {
+    min-height: 800px;
+    padding: 0 50px;
+    margin: 0 0 20px 0;
+}
 
 .info-sandwich h3 {
     text-align: center;
@@ -327,57 +332,30 @@ figure:hover::before {
     text-transform: capitalize;
 }
 
-.sandwich {
-    position: relative;
-    height: 500px;
+.sandwich-img {
+    min-height: 100%;
 }
 
-.sandwich img {
+.sandwich-img img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.overlay {
-    position: absolute;
-    display: none;
-    width: fit-content;
-    height: fit-content;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.527);
-    box-shadow: 1px 4px 14px 20px #fff;
+.sandwich-description {
+    background-color: #ece6e6;
+    height: 100%;
+    padding: 50px;
     border-radius: 12px;
-    color: #fff;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    cursor: pointer;
+    position: relative;
 }
 
-/* /code from w3School */
-
-.btn--info {
-    background-color: #f55308;
-    color: #fff;
+.options {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: .5rem 1.3rem;
-    text-transform: uppercase;
-    border-radius: 10px;
-    transition: all .5s ease-in-out;
 }
-
-.btn--info:hover {
-    border: 1px solid #f55308;
-    background-color: #fff;
-    color: #f55308;
-}
-
 
 .modal-open {
     background-color: #0c0c0c52;
