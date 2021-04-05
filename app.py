@@ -69,13 +69,21 @@ class User(UserMixin):
 
 class RegistrationForm(FlaskForm):
     username = StringField(
-        'Username', validators=[DataRequired(), Length(min=6, max=20)])
+        'Username',
+        validators=[DataRequired(), Length(min=6, max=20)],
+        render_kw={'placeholder': 'Username'})
     email = StringField(
-        'E-mail', validators=[DataRequired(), Email()])
+        'E-mail',
+        validators=[DataRequired(), Email()],
+        render_kw={'placeholder': 'E-mail'})
     password = PasswordField(
-        'Password', validators=[DataRequired(), Length(min=8, max=16)])
+        'Password',
+        validators=[DataRequired(), Length(min=8, max=16)],
+        render_kw={'placeholder': 'Password'})
     confirm_password = PasswordField(
-        'Confirm Password', validators=[DataRequired(), EqualTo('password')])
+        'Confirm Password',
+        validators=[DataRequired(), EqualTo('password')],
+        render_kw={'placeholder': 'Confirm Password'})
     submit = SubmitField('Sign Up')
 
     # check if username exist
@@ -98,8 +106,14 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    username = StringField(
+        'Username',
+        validators=[DataRequired()],
+        render_kw={'placeholder': 'Username'})
+    password = PasswordField(
+        'Password',
+        validators=[DataRequired()],
+        render_kw={'placeholder': 'Password'})
     submit = SubmitField('Sign In')
 
 
@@ -108,12 +122,28 @@ class AddSandwichForm(FlaskForm):
         'Sandwich Category', choices=[
             ('Vegetarian'), ('Gluten Free'), ('Hot')])
     sandwich_name = StringField(
-        'Sandwich Name', validators=[DataRequired(), Length(min=3, max=20)])
+        'Sandwich Name',
+        validators=[DataRequired(),
+                    Length(min=3, max=20)],
+        render_kw={'placeholder': 'sandwich name'})
     sandwich_description = TextAreaField(
-        'Sandwich Description', validators=[DataRequired()])
-    image_Url = StringField('Image Url', validators=[DataRequired()])
-    ingredients = StringField('Ingredients', validators=[DataRequired()])
-    portion = IntegerField('Portion', validators=[DataRequired()])
+        'Sandwich Description',
+        validators=[DataRequired()],
+        render_kw={'placeholder': 'sandwich description'})
+    image_Url = StringField('Image Url',
+                            validators=[DataRequired()],
+                            render_kw={
+                                'placeholder':
+                                'pase the image address here'})
+    ingredients = StringField('Ingredients',
+                              validators=[DataRequired()],
+                              render_kw={
+                                  'placeholder':
+                                  'Write ingredients separeted by a coma'})
+    portion = IntegerField(
+        'Portion',
+        validators=[DataRequired()],
+        render_kw={'placeholder': 'Add portion of sandwiches (only numbers)'})
     submit = SubmitField('Add')
 
 
