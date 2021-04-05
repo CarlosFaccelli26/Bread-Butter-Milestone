@@ -2,7 +2,7 @@
 document.getElementById('date').innerHTML = new Date().getFullYear();
 
 //Get the button:
-mybutton = document.getElementById("mybtn");
+mybutton = document.getElementById("btn-scroll");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};

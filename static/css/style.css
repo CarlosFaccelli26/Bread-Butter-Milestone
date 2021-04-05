@@ -1,9 +1,15 @@
 /* ================ Google Fonts ================ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
 
 /* ================ Generals ================ */
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .flashes {
@@ -19,6 +25,43 @@ body {
 section {
     min-height: 800px;
 }
+
+/* class to give some properties to any animation implemented throught out the project */
+
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+}
+
+.btn-scroll {
+    /* position: relative; */
+    display: none;
+    position: fixed;
+    bottom: 8vh;
+    right: 50px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #f55308;
+    color: white;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: all .5s ease-in-out;
+}
+
+.btn-scroll:hover {
+  background-color: #fff; /* Add a dark-grey background on hover */
+  color: #f55308;
+  border: 1px solid #f55308;
+}
+
+/* ================ Forms ================ */
 
 .forms {
     background-color: #000;
@@ -39,8 +82,8 @@ fieldset {
 legend {
     color: #f55308;
     text-align: center;
-    font-weight: 700;
     font-size: 32px;
+    font-weight: 700;
     padding: 10px;
 }
 
@@ -48,6 +91,7 @@ label {
     color: #f55308;
     margin: 10px 0;
     font-size: 20px;
+    font-weight: 500;
 }
 
 .btn-submit {
@@ -66,13 +110,14 @@ label {
     color: #f55308;
 }
 
+/* ================ Register and Login Form ================ */
+
 .info {
     text-align: center;
     margin: 20px 0;
     color: #f55308;
-    font-weight: bold;
+    font-weight: 300;
     font-size: 20px;
-    text-decoration: underline;
 }
 
 .info a {
@@ -94,19 +139,10 @@ label {
 .logo {
     font-size: 2.3rem;
     letter-spacing: 1px;
-    font-weight: bold;
+    font-weight: 700;
     color: #f55308;
 	position: relative;
 	line-height: 50px;
-}
-
-.animated {
-	-webkit-animation-duration: 1s;
-	animation-duration: 1s;
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
-	-webkit-animation-timing-function: ease-in-out;
-	animation-timing-function: ease-in-out;
 }
 
 .bounce { 
@@ -124,6 +160,7 @@ label {
     position: relative;
     display: inline-block;
     font-size: 16px;
+    font-weight: 300;
 }
 
 .nav-link:hover {
@@ -146,7 +183,7 @@ label {
 }
 
 .nav-link:hover:after {
-    width: 80%; 
+    width: 100%; 
     left: 0; 
 }
 /* /Code take it from stack overflow */
@@ -184,6 +221,7 @@ label {
 
 .small-text p {
     font-size: 18px;
+    font-weight: 500;
 }
 
 .carousel-item {
@@ -213,20 +251,21 @@ label {
     width: 100%;
     margin: 20px 10px;
     box-shadow: 9px 8px 12px 4px #1a1a1a;
-    height: 350px;
+    min-height: 350px;
 }
 
 figure {
     position: relative; 
     overflow: hidden;
     margin: 0;
-    height: 100%;
+    height: 150px;
     width: 100%;
 }
 
 .card-img-top {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 figure::before {
@@ -255,6 +294,12 @@ figure:hover::before {
     font-size: 20px;
     font-weight: 500;
     text-transform: capitalize;
+    transition: all .5s ease-in-out;
+}
+
+.card-title:hover {
+    color: #1a1a1a;
+    letter-spacing: .7px;
 }
 
 .card-text {
@@ -267,33 +312,7 @@ figure:hover::before {
     font-size: 18px;
     position: absolute;
     bottom: 10px;
-}
-
-.btn-scroll {
-    position: relative;
-}
-
-.mybtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 8vh; /* Place the button at the bottom of the page */
-    right: 50px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: #f55308;/* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 20px; /* Some padding */
-    border-radius: 50%; /* Rounded corners */
-    font-size: 18px; /* Increase font size */
-    transition: all .5s ease-in-out;
-}
-
-.mybtn:hover {
-  background-color: #fff; /* Add a dark-grey background on hover */
-  color: #f55308;
-  border: 1px solid #f55308;
+    font-weight: 300;
 }
 
 .btn-sandwich {
@@ -332,14 +351,14 @@ figure:hover::before {
     text-transform: capitalize;
 }
 
-.sandwich-img {
-    min-height: 100%;
+.sandwich-img img {
+    height: 500px;
 }
 
 .sandwich-img img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .sandwich-description {
@@ -369,10 +388,6 @@ figure:hover::before {
     margin: auto;
 }
 
-/* ================ Login ================ */
-
-/* ================ Register ================ */
-
 /* ================ All Sandwich ================ */
 
 .title {
@@ -380,7 +395,7 @@ figure:hover::before {
     text-transform: capitalize;
     padding: 20px;
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .card-sandwich {
@@ -393,7 +408,7 @@ figure:hover::before {
 .card-sandwich img {
     width: 100%;
     height: 300px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .card-body-sandwich {
@@ -406,11 +421,13 @@ figure:hover::before {
     text-align: center;
     letter-spacing: 1px;
     padding: 10px 10px;
+    font-weight: 500;
 }
 
 .card-body-sandwich .card-text small {
     position: absolute;
     bottom: 10px;
+    font-weight: 300;
 }
 
 /* pagination info */
@@ -459,7 +476,7 @@ figure:hover::before {
 .copyright p {
     text-align: right;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 500;
     padding-top: 10px;
     color: #fff;
 }

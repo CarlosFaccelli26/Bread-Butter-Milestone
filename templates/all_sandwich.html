@@ -23,8 +23,8 @@ See All What We Have
                         </div>
                         <div class="col-md-7">
                             <div class="card-body-sandwich">
-                                <a href="{{ url_for('sandwich', sandwich_id=sandwich._id) }}">
-                                    <h5 class="card-title">{{ sandwich.sandwich_name }}</h5>
+                                <a href="{{ url_for('sandwich', sandwich_id=sandwich._id) }}" class="card-title">
+                                    {{ sandwich.sandwich_name }}
                                 </a>
                                 
                                 <p class="card-text">{{ sandwich.sandwich_category }}</p>
