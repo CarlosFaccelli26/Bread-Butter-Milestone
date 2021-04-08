@@ -558,3 +558,42 @@ figure:hover::before {
 		left: 125%;
 	}
 }
+
+/* ================ Media Queries ================ */
+@media only screen and (max-width: 600px) {
+    /* Index */
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .main-text h1 {
+        font-size: 22px;
+    }
+
+    .small-text p {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .card {
+        width: 80%;
+        margin: 10px auto;
+        box-shadow: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    /* Index */
+    .logo {
+        font-size: 2rem;
+    }
+
+    .main-text h1 {
+        font-size: 30px;
+    }
+
+    .card {
+        width: 100%;
+        box-shadow: none;
+    }
+}
