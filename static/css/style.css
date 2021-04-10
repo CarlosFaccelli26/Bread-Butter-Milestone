@@ -229,6 +229,10 @@ label {
     font-weight: 500;
 }
 
+.carousel-inner  {
+    margin-bottom: 20px;
+}
+
 .carousel-item {
     height: 500px;
 }
@@ -240,6 +244,33 @@ label {
     bottom: 0;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.add-content {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(223, 222, 222);
+    margin-bottom: 20px;
+}
+
+.add-content a {
+    font-size: 28px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .5s ease-in-out;
+}
+
+.add-content a:hover {
+    letter-spacing: 6px;
+    color: #f55308;
+}
+
+.fadeInLeftBig { 
+    -webkit-animation-name: fadeInLeftBig; 
+    animation-name: fadeInLeftBig; 
 }
 
 .card-img-top {
