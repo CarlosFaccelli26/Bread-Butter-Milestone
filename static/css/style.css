@@ -136,6 +136,11 @@ label {
     min-height: 8vh;
 }
 
+.nav-bg i {
+    color: #f55308;
+    font-size: 33px;
+}
+
 .logo {
     font-size: 2.3rem;
     letter-spacing: 1px;
@@ -352,19 +357,15 @@ figure:hover::before {
 }
 
 .sandwich-img img {
-    height: 500px;
-}
-
-.sandwich-img img {
     width: 100%;
-    height: 100%;
+    height: 600px;
     object-fit: cover;
 }
 
 .sandwich-description {
     background-color: #ece6e6;
     height: 100%;
-    padding: 50px;
+    padding: 40px;
     border-radius: 12px;
     position: relative;
 }
@@ -374,6 +375,10 @@ figure:hover::before {
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
+}
+
+.options .btn {
+    color: #fff;
 }
 
 .modal-open {
@@ -561,6 +566,10 @@ figure:hover::before {
 
 /* ================ Media Queries ================ */
 @media only screen and (max-width: 600px) {
+    /* Generals */
+    .flashes-messages {
+        width: 100%;
+    }
     /* Index */
     .logo {
         font-size: 1.5rem;
@@ -577,12 +586,42 @@ figure:hover::before {
 
     .card {
         width: 80%;
-        margin: 10px auto;
+        margin: 20px auto;
         box-shadow: none;
+    }
+
+    /* Forms */
+    fieldset {
+        width: 100%;
+        box-shadow: none;
+    }
+
+    /* All Sandwich */
+    .card-sandwich {
+        height: auto;
+        width: 75%;
+        margin: 10px auto;
+    }
+
+    /* Sandwich */
+    .sandwich-img img {
+        height: 100%;
+    }
+
+    .sandwich-description {
+        margin: 20px auto;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .options .btn {
+        padding: .5rem .5rem;
+        font-size: .875rem;
+        border-radius: .2rem;
     }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: 990px) {
     /* Index */
     .logo {
         font-size: 2rem;
@@ -595,5 +634,17 @@ figure:hover::before {
     .card {
         width: 100%;
         box-shadow: none;
+    }
+    /* Forms */
+    fieldset {
+        width: 75%;
+    }
+    /* Sandwich */
+    .sandwich-img img {
+        height: 100%;
+    }
+
+    .sandwich-description {
+        margin: 20px 0;
     }
 }
