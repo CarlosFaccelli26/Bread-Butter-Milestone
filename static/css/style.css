@@ -681,3 +681,11 @@ figure:hover::before {
         margin: 20px 0;
     }
 }
+
+@media only screen and (min-width:991px) and (max-width:1245px) {
+     .options .btn {
+        padding: .5rem .5rem;
+        font-size: .875rem;
+        border-radius: .2rem;
+    }
+}
