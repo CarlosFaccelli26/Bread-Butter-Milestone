@@ -71,6 +71,16 @@ Home
 <main>
     <div class="container">
         <div class="row">
+            <div class="col-12">
+                <form method="POST" class="search-form" action="{{ url_for('search') }}">
+                    <input type="search" name="query" id="query" class="search" required>
+                      <a href="{{ url_for('index')}}" class="btn btn-danger">Reset</a>
+                    <button type="submit" class="btn btn-info"><i class="fas-fa-search"></i>Go</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            {% if sandwiches|length > 0 %}
             {% for sandwich in sandwiches %}
                 <div class="col-sm-12 col-md-6 col-lg-3">
                     <div class="card">
@@ -93,6 +103,9 @@ Home
                     </div>
                 </div>
             {% endfor %}
+            {% else %}
+                <h1 class="text-danger">No results</h1>
+            {% endif %}
         </div>
         {% if sandwiches|length >= 8 %}
         <a href="{{ url_for('all_sandwich') }}" class="btn btn-sandwich">

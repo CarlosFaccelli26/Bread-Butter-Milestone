@@ -304,6 +304,14 @@ def all_sandwich():
                            pagination=pagination)
 
 
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    query = request.form.get('query')
+    sandwiches = list(mongo.db.sandwiches.find({'$text': {'$search': query}}))
+    return render_template('index.html',
+                           sandwiches=sandwiches)
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
