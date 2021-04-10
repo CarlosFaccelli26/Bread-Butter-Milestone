@@ -129,6 +129,35 @@ label {
     color: #f55308;
 }
 
+/* ================ Search Form ================ */
+
+.search-form {
+    width: 100%;
+    background-color: rgb(202, 202, 202);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.search-form legend {
+    font-size: 22px;
+}
+
+.search {
+    width: 80%;
+    margin-right: 20px;
+    outline: none;
+    border-radius: 12px;
+}
+
+.search-form .btn {
+    color: #fff;
+}
+
+.btn i {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
 /* ================ Nav ================ */
 
 .nav-bg {

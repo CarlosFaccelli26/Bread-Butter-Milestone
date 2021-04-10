@@ -73,9 +73,10 @@ Home
         <div class="row">
             <div class="col-12">
                 <form method="POST" class="search-form" action="{{ url_for('search') }}">
+                    <legend>Search for a resault</legend>
                     <input type="search" name="query" id="query" class="search" required>
                       <a href="{{ url_for('index')}}" class="btn btn-danger">Reset</a>
-                    <button type="submit" class="btn btn-info"><i class="fas-fa-search"></i>Go</button>
+                    <button type="submit" class="btn btn-info"><i class="fas fa-search"></i>Go</button>
                 </form>
             </div>
         </div>
