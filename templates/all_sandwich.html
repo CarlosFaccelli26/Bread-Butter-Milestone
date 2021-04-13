@@ -15,8 +15,8 @@ See All What We Have
         <div class="row">
             {{ pagination.info }}
             {% for sandwich in sandwiches %}
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <div class="card-sandwich mb-3" style="max-width: 540px;">
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="card-sandwich card-all-sandwich mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-5">
                             <img src="{{ sandwich.imageUrl }}" alt="{{ sandwich.sandwich_name }}">

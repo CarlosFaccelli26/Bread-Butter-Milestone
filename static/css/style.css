@@ -158,6 +158,14 @@ label {
     margin-right: 5px;
 }
 
+.results-text {
+    text-align: center;
+    color: red;
+    font-weight: 400;
+    margin-top: 10px;
+    font-size: 22px;
+}
+
 /* ================ Nav ================ */
 
 .nav-bg {
@@ -436,14 +444,14 @@ figure:hover::before {
     font-weight: 700;
 }
 
-.card-sandwich {
+.card-all-sandwich {
     width: 100%;
     height: 300px;
     border: 1px solid #1a1a1a;
     position: relative;
 }
 
-.card-sandwich img {
+.card-all-sandwich img {
     width: 100%;
     height: 300px;
     object-fit: cover;
@@ -623,6 +631,16 @@ figure:hover::before {
         box-shadow: none;
     }
 
+    .search {
+        width: 100%;
+    }
+
+    .search-form .btn {
+        margin-left: 50%;
+        transform: translate(-50%);
+        margin-top: 5px;
+    }
+
     /* Forms */
     fieldset {
         width: 100%;
@@ -668,6 +686,11 @@ figure:hover::before {
         width: 100%;
         box-shadow: none;
     }
+
+    .search {
+        width: 60%;
+    }
+
     /* Forms */
     fieldset {
         width: 75%;
@@ -679,6 +702,13 @@ figure:hover::before {
 
     .sandwich-description {
         margin: 20px 0;
+    }
+
+    /* All Sandwiches */
+    .card-all-sandwich {
+        width: 75%;
+        margin: auto;
+        height: auto;
     }
 }
 
