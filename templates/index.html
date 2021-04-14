@@ -8,14 +8,20 @@ Home
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="main-text animated fadeInLeftBig">
-                    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur architecto maiores sunt a
-                        voluptate beatae, aliquid libero reiciendis eos iure adipisci similique earum ratione explicabo.
+                    <h1>
+                        What is a life without the best secrets? Share your recipe, got new ideas and 5000 of tasty experience!
                     </h1>
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="small-text animated fadeInRightBig">
-                    <p>Lorem ipsum dolor sit amet consectetur. <a href="{{ url_for('register') }}"></a></p>
+                    <p>Lorem ipsum dolor sit amet consectetur.
+                        {% if current_user.username %}
+                        <a href="{{ url_for('add_sandwich') }}">Share your sandwich!</a>
+                        {% else %}
+                        <a href="{{ url_for('register') }}">Register</a>
+                        {% endif %}
+                    </p>
                 </div>
             </div>
         </div>

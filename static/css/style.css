@@ -23,7 +23,7 @@ body {
 }
 
 section {
-    min-height: 800px;
+    min-height: 100vh;
 }
 
 /* class to give some properties to any animation implemented throught out the project */
@@ -264,6 +264,16 @@ label {
 .small-text p {
     font-size: 18px;
     font-weight: 500;
+}
+
+.small-text p a {
+    color: inherit;
+    text-decoration: none;
+    transition: all .5s ease-in-out;
+}
+
+.small-text p a:hover {
+    color: #f55308;
 }
 
 .carousel-inner  {
@@ -628,6 +638,10 @@ figure:hover::before {
         font-size: 22px;
     }
 
+    .small-text {
+        height: auto;
+    }
+
     .small-text p {
         font-size: 20px;
         text-align: center;
@@ -689,6 +703,10 @@ figure:hover::before {
 
     .main-text h1 {
         font-size: 30px;
+    }
+
+    .small-text {
+        height: auto;
     }
 
     .card {
