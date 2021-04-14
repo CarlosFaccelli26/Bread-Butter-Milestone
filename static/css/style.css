@@ -470,6 +470,14 @@ figure:hover::before {
     font-weight: 500;
 }
 
+.card-body-sandwich .card-title:hover {
+    letter-spacing: 1.5px;
+}
+
+.card-body-sandwich p {
+    text-transform: capitalize;
+}
+
 .card-body-sandwich .card-text small {
     position: absolute;
     bottom: 10px;
@@ -631,8 +639,9 @@ figure:hover::before {
         box-shadow: none;
     }
 
+    /* Search form on index.html */
     .search {
-        width: 100%;
+        width: 100%!important;
     }
 
     .search-form .btn {
