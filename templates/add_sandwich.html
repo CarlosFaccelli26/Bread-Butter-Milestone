@@ -115,7 +115,10 @@ Add Sandwich
                         <!-- /Portion -->
                     </fieldset>
                     <div class="form-group">
-                        {{ form.submit(class="btn btn-submit") }}
+                        <div class="buttons text-center">
+                            {{ form.submit(class="btn btn-submit") }}
+                            <a href="{{ url_for('index') }}" class="btn btn-cancel">Cancel</a>
+                        </div>
                     </div>
                 </form>
             </div>
