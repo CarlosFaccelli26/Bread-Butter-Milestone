@@ -6,6 +6,21 @@ Home
 <section>
     <div class="container">
         <div class="row">
+            <div class="col-12">
+                <div class="searcher">
+                    <button class="btn btn-lg search-button" onclick="search()">
+                        <i id="search-trigger" class="fas fa-search searcher-icon"></i>
+                        <span id="search-text">Looking for Something?</span>
+                    </button>
+                    <form method="POST" id="form" class="search-form" action="{{ url_for('search') }}">
+                        <input type="search" name="query" id="query" class="search" placeholder="Type name or ingredients of a sandwich" required>
+                        <a href="{{ url_for('index')}}" class="btn btn-danger">Reset</a>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-search"></i>Go</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="main-text animated fadeInLeftBig">
                     <h1>
@@ -76,16 +91,6 @@ Home
 </section>
 <main>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <form method="POST" class="search-form" action="{{ url_for('search') }}">
-                    <legend>Search for a resault</legend>
-                    <input type="search" name="query" id="query" class="search" required>
-                      <a href="{{ url_for('index')}}" class="btn btn-danger">Reset</a>
-                    <button type="submit" class="btn btn-info"><i class="fas fa-search"></i>Go</button>
-                </form>
-            </div>
-        </div>
         <div class="row">
             {% if sandwiches|length > 0 %}
                 {% for sandwich in sandwiches %}

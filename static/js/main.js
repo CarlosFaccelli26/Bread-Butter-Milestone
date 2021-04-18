@@ -36,3 +36,19 @@ var carousel = new bootstrap.Carousel(myCarousel, {
   interval: 2000,
   wrap: true
 })
+
+// search toggle function
+function search() {
+  var form = document.getElementById("form");
+  var search_text = document.getElementById('search-text');
+  if (form.style.display === "none") {
+    form.style.display = "block";
+  } else {
+    form.style.display = "none";
+  }
+  if (search_text.style.display === "block") {
+      search_text.style.display = "none";
+  } else {
+      search_text.style.display = "block";
+  }
+}

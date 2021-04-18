@@ -146,12 +146,33 @@ label {
 }
 
 /* ================ Search Form ================ */
+.searcher {
+    margin-top: 20px;
+    display: flex;
+    padding: 5px;
+}
+
+.search-button {
+    margin-left: auto;
+}
+
+.searcher span {
+    color: #f55308;
+    font-size: 18px;
+    float: right;
+}
+
+.searcher-icon {
+    color: #f55308;
+    font-size: 25px!important;
+}
 
 .search-form {
     width: 100%;
-    background-color: rgb(202, 202, 202);
-    padding: 20px;
+    /* background-color: rgb(202, 202, 202); */
+    padding: 0 20px;
     border-radius: 12px;
+    display: none;
 }
 
 .search-form legend {
