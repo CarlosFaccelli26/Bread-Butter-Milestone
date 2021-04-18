@@ -24,19 +24,21 @@ Home
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="main-text animated fadeInLeftBig">
                     <h1>
-                        What is a life without the best secrets? Share your recipe, got new ideas and 5000 of tasty experience!
+                        <span class="capital-letter">W</span>hat is a life without the best secrets? Share your recipe, got new ideas and dont't miss more than <span>5000</span> tasty experiences!
                     </h1>
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="small-text animated fadeInRightBig">
-                    <p>Lorem ipsum dolor sit amet consectetur.
-                        {% if current_user.username %}
-                        <a href="{{ url_for('add_sandwich') }}">Share your sandwich!</a>
-                        {% else %}
+                    {% if current_user.username %}
+                        <p>Eureka!! I found the tastiest recipe.
+                            <a href="{{ url_for('add_sandwich') }}">Share your sandwich!</a>
+                        </p>
+                    {% else %}
+                        <p>Is your mind blank? Are you looking for the perfect sandwich?
                         <a href="{{ url_for('register') }}">Register</a>
-                        {% endif %}
                     </p>
+                    {% endif %}
                 </div>
             </div>
         </div>

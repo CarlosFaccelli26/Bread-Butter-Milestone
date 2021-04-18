@@ -99,7 +99,7 @@ label {
 }
 
 .btn-submit {
-    background-color: #f55308;
+    background-color: #539416;
     color: #fff;
     transition: all .5s ease-in-out;
     border-radius: 12px;
@@ -116,8 +116,8 @@ label {
 
 .btn-submit:hover {
     background-color: #fff;
-    border: 1px solid #f55308;
-    color: #f55308;
+    border: 1px solid #539416;
+    color: #539416;
 }
 
 .btn-cancel:hover {
@@ -279,6 +279,16 @@ label {
     margin: 20% 0;
     position: relative;
     text-align: center;
+    color: #1a1a1a;
+}
+
+.capital-letter {
+    font-size: 50px;
+    color: #1a1a1a!important;
+}
+
+.main-text h1 span {
+    color: #f55308;
 }
 
 .fadeInLeftBig { 
@@ -304,13 +314,15 @@ label {
 }
 
 .small-text p a {
-    color: inherit;
     text-decoration: none;
     transition: all .5s ease-in-out;
+    color: #539416;
 }
 
 .small-text p a:hover {
-    color: #f55308;
+    color: #539416;
+    letter-spacing: 1px;
+    font-size: 20px;
 }
 
 .carousel-inner  {
