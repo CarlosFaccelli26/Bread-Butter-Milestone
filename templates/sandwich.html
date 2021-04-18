@@ -43,9 +43,12 @@ Sandwich
                      <p>
                          <span>Portion:</span> {{ sandwich.portion }}
                         </p>
-                    <p>
-                        <span>Ingredients:</span> {{ sandwich.ingredients }}
-                    </p>
+                    <p><span>Ingredients:</span></p>
+                        <ul>
+                        <li>
+                            {{ sandwich.ingredients }}
+                        </li>
+                    </ul>
                     {% if sandwich.created_by == current_user.username %}
                         <div class="options">
                             <a href="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}"
