@@ -479,8 +479,16 @@ figure:hover::before {
     margin-top: 15px;
 }
 
+.sandwich-description i {
+    font-weight: 700;
+}
+
 .sandwich-description p span {
     font-weight: 700;
+    text-transform: capitalize;
+}
+
+.sandwich-description p {
     text-transform: capitalize;
 }
 
