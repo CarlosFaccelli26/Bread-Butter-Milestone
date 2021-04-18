@@ -10,7 +10,7 @@ Edit Sandwich
                 <form method="POST" action="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
-                        <legend>Update Sandwich</legend>
+                        <legend>Edit Sandwich</legend>
                         <!-- Sandwich Category -->
                         <div class="form-group">
                             {{ form.sandwich_category.label(class="form-control-label") }}
@@ -113,6 +113,38 @@ Edit Sandwich
                         <!-- Validation Portion input -->
                         </div>
                         <!-- /Portion -->
+                        <!-- Duration -->
+                        <div class="form-group">
+                            {{ form.duration.label(class="form-control-label") }}
+                            <!-- Validation Duration input -->
+                            {% if form.duration.errors %}
+                                {{ form.duration(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.duration.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.duration(class="form-control form-control-lg") }}
+                            {% endif %}
+                            <!-- Validation Duration input -->
+                        </div>
+                        <!-- Difficulty -->
+                        <div class="form-group">
+                            {{ form.difficulty.label(class="form-control-label") }}
+                            <!-- Validation Difficulty input -->
+                            {% if form.difficulty.errors %}
+                                {{ form.difficulty(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.difficulty.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.difficulty(class="form-control form-control-lg") }}
+                            {% endif %}
+                            <!-- Validation Difficulty input -->
+                        </div>
                     </fieldset>
                     <div class="form-group">
                         <div class="buttons text-center">

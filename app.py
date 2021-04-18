@@ -120,7 +120,7 @@ class LoginForm(FlaskForm):
 class AddSandwichForm(FlaskForm):
     sandwich_category = SelectField(
         'Sandwich Category', choices=[
-            ('Vegetarian'), ('Gluten Free'), ('Hot')])
+            (None, 'Select an Option'), ('Gluten Free', 'Gluten Free'), ('Vegetarian', 'Vegetarian')])
     sandwich_name = StringField(
         'Sandwich Name',
         validators=[DataRequired(),
@@ -144,6 +144,10 @@ class AddSandwichForm(FlaskForm):
         'Portion',
         validators=[DataRequired()],
         render_kw={'placeholder': 'Add portion of sandwiches (only numbers)'})
+    duration = IntegerField(
+        'Duration', validators=[DataRequired()], render_kw={'placeholder': 'Duration of sandwich'})
+    difficulty = SelectField(
+        'Diffulty', choices=[(None, 'Select an Option'), ('Easy', 'Esasy'), ('Medium', 'Medium'), ('Hard', 'Hard')])
     submit = SubmitField('Add')
 
 
@@ -158,6 +162,10 @@ class EditSandwich(FlaskForm):
     image_Url = StringField('Image Url', validators=[DataRequired()])
     ingredients = StringField('Ingredients', validators=[DataRequired()])
     portion = IntegerField('Portion', validators=[DataRequired()])
+    duration = IntegerField(
+        'Duration', validators=[DataRequired()], render_kw={'placeholder': 'Duration of sandwich'})
+    difficulty = SelectField(
+        'Diffulty', choices=[(None, 'Select an Option'), ('Easy', 'Esasy'), ('Medium', 'Medium'), ('Hard', 'Hard')])
     submit = SubmitField('Update')
 
 
@@ -223,7 +231,9 @@ def add_sandwich():
             'imageUrl': form.image_Url.data,
             'ingredients': form.ingredients.data,
             'portion': form.portion.data,
-            'created_by': current_user.username
+            'duration': form.duration.data,
+            'difficulty': form.difficulty.data,
+            'created_by': current_user.username,
         }
         mongo.db.sandwiches.insert_one(sandwich)
         flash('Sandwich Added.', category='success')
@@ -254,6 +264,8 @@ def edit_sandwich(sandwich_id):
             'imageUrl': form.image_Url.data,
             'ingredients': form.ingredients.data,
             'portion': form.portion.data,
+            'duration': form.duration.data,
+            'difficulty': form.difficulty.data,
             'created_by': current_user.username
         }
         mongo.db.sandwiches.update({'_id': ObjectId(sandwich_id)}, submit)
@@ -265,6 +277,8 @@ def edit_sandwich(sandwich_id):
         form.image_Url.data = sandwich['imageUrl']
         form.ingredients.data = sandwich['ingredients']
         form.portion.data = sandwich['portion']
+        form.duration.data = sandwich['duration']
+        form.difficulty.data = sandwich['difficulty']
     return render_template('edit_sandwich.html', form=form, sandwich=sandwich)
 
 

@@ -25,11 +25,27 @@ Sandwich
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
                 <aside class="sandwich-description">
-                    <h3>{{ sandwich.sandwich_name }}</h3>
-                    <p>{{ sandwich.sandwich_category }}</p>
-                    <p>{{ sandwich.sandwich_description }}</p>
-                    <p>{{ sandwich.ingredients }}</p>
-                    <p>{{ sandwich.portion }}</p>
+                    <h3>
+                        <i class="fas fa-pencil-alt"></i> {{ sandwich.sandwich_name }}
+                    </h3>
+                    <p>
+                        <span>Category:</span> {{ sandwich.sandwich_category }}
+                    </p>
+                    <p>
+                        <span>Description:</span> {{ sandwich.sandwich_description }}
+                    </p>
+                    <p>
+                        <span><i class="far fa-clock"></i> :</span> {{ sandwich.duration }} min.
+                    </p>
+                     <p>
+                        <span><i class="fas fa-signal"></i> :</span> {{ sandwich.difficulty }}
+                    </p>
+                     <p>
+                         <span>Portion:</span> {{ sandwich.portion }}
+                        </p>
+                    <p>
+                        <span>Ingredients:</span> {{ sandwich.ingredients }}
+                    </p>
                     {% if sandwich.created_by == current_user.username %}
                         <div class="options">
                             <a href="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}"
