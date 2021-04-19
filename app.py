@@ -120,7 +120,9 @@ class LoginForm(FlaskForm):
 class AddSandwichForm(FlaskForm):
     sandwich_category = SelectField(
         'Sandwich Category', choices=[
-            (None, 'Select an Option'), ('Gluten Free', 'Gluten Free'), ('Vegetarian', 'Vegetarian')])
+            (None, 'Select an Option'),
+            ('Gluten Free', 'Gluten Free'),
+            ('Vegetarian', 'Vegetarian')])
     sandwich_name = StringField(
         'Sandwich Name',
         validators=[DataRequired(),
@@ -145,16 +147,23 @@ class AddSandwichForm(FlaskForm):
         validators=[DataRequired()],
         render_kw={'placeholder': 'Add portion of sandwiches (only numbers)'})
     duration = IntegerField(
-        'Duration', validators=[DataRequired()], render_kw={'placeholder': 'Duration of sandwich'})
+        'Duration', validators=[DataRequired()],
+        render_kw={'placeholder': 'Duration of sandwich'})
     difficulty = SelectField(
-        'Diffulty', choices=[(None, 'Select an Option'), ('Easy', 'Esasy'), ('Medium', 'Medium'), ('Hard', 'Hard')])
+        'Diffulty', choices=[
+            (None, 'Select an Option'),
+            ('Easy', 'Esasy'),
+            ('Medium', 'Medium'),
+            ('Hard', 'Hard')])
     submit = SubmitField('Add')
 
 
 class EditSandwich(FlaskForm):
     sandwich_category = SelectField(
         'Sandwich Category', choices=[
-            ('Vegetarian'), ('Gluten Free'), ('Hot')])
+            (None, 'Select an Option'),
+            ('Gluten Free', 'Gluten Free'),
+            ('Vegetarian', 'Vegetarian')])
     sandwich_name = StringField(
         'Sandwich Name', validators=[DataRequired(), Length(min=3, max=20)])
     sandwich_description = TextAreaField(
@@ -163,9 +172,14 @@ class EditSandwich(FlaskForm):
     ingredients = StringField('Ingredients', validators=[DataRequired()])
     portion = IntegerField('Portion', validators=[DataRequired()])
     duration = IntegerField(
-        'Duration', validators=[DataRequired()], render_kw={'placeholder': 'Duration of sandwich'})
+        'Duration', validators=[DataRequired()],
+        render_kw={'placeholder': 'Duration of sandwich'})
     difficulty = SelectField(
-        'Diffulty', choices=[(None, 'Select an Option'), ('Easy', 'Esasy'), ('Medium', 'Medium'), ('Hard', 'Hard')])
+        'Diffulty', choices=[
+            (None, 'Select an Option'),
+            ('Easy', 'Esasy'),
+            ('Medium', 'Medium'),
+            ('Hard', 'Hard')])
     submit = SubmitField('Update')
 
 
