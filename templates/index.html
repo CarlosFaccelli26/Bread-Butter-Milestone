@@ -44,7 +44,7 @@ Home
         </div>
         <div class="row">
             <div class="col-12">
-                <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div id="myCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
                             class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -54,27 +54,15 @@ Home
                             aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="static/images/slide1.jpg" class="d-block w-100" alt="slide-image">
+                        {% for sandwich in sandwiches %}
+                        <div class="carousel-item {% if loop.index == 1%} active {% endif %}">
+                            <img src="{{ sandwich.imageUrl }}" class="d-block w-100" alt="slide-image">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
+                                <h5>{{ sandwich.sandwich_name }}</h5>
+                                <p class="truncate">{{ sandwich.sandwich_description }}</p>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <img src="static/images/slide2.jpg" class="d-block w-100" alt="slide-image">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="static/images/slide3.jpg" class="d-block w-100" alt="slide-image">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
                         data-bs-slide="prev">
