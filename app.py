@@ -118,11 +118,11 @@ class LoginForm(FlaskForm):
 
 
 class AddSandwichForm(FlaskForm):
-    sandwich_category = SelectField(
-        'Sandwich Category', choices=[
-            (None, 'Select an Option'),
-            ('Gluten Free', 'Gluten Free'),
-            ('Vegetarian', 'Vegetarian')])
+    # sandwich_category = SelectField(
+    #     'Sandwich Category', choices=[
+    #         (None, 'Select an Option'),
+    #         ('Gluten Free', 'Gluten Free'),
+    #         ('Vegetarian', 'Vegetarian')])
     sandwich_name = StringField(
         'Sandwich Name',
         validators=[DataRequired(),
@@ -149,12 +149,6 @@ class AddSandwichForm(FlaskForm):
     duration = IntegerField(
         'Duration', validators=[DataRequired()],
         render_kw={'placeholder': 'Duration of sandwich'})
-    difficulty = SelectField(
-        'Diffulty', choices=[
-            (None, 'Select an Option'),
-            ('Easy', 'Esasy'),
-            ('Medium', 'Medium'),
-            ('Hard', 'Hard')])
     submit = SubmitField('Add')
 
 
@@ -236,17 +230,19 @@ def logout():
 @app.route('/add_sandwich', methods=['GET', 'POST'])
 @login_required
 def add_sandwich():
+    categories = mongo.db.categories.find()
+    sandwiches = mongo.db.sandwiches.find()
     form = AddSandwichForm()
     if form.validate_on_submit():
         sandwich = {
-            'sandwich_category': form.sandwich_category.data,
+            'sandwich_category': request.form.get('sandwich_category'),
             'sandwich_name': form.sandwich_name.data,
             'sandwich_description': form.sandwich_description.data,
             'imageUrl': form.image_Url.data,
             'ingredients': form.ingredients.data,
             'portion': form.portion.data,
             'duration': form.duration.data,
-            'difficulty': form.difficulty.data,
+            'difficulty': request.form.get('difficulty'),
             'created_by': current_user.username,
         }
         mongo.db.sandwiches.insert_one(sandwich)
@@ -254,7 +250,9 @@ def add_sandwich():
         return redirect(url_for('index'))
     return render_template(
             'add_sandwich.html',
-            form=form)
+            form=form,
+            categories=categories,
+            sandwiches=sandwiches)
 
 
 @app.route('/sandwich/<sandwich_id>')
