@@ -80,6 +80,9 @@ Register
                             {% endif %}
                             <!-- Validation confirm_password input -->
                         </div>
+                        <p class="info">
+                            <small>Already Registered? <a href="{{ url_for('login') }}">Login</a></small>
+                        </p>
                     </fieldset>
                     <div class="form-group">
                         <div class="buttons text-center">
@@ -87,9 +90,6 @@ Register
                         </div>
                     </div>
                 </form>
-                <p class="info">
-                    <small>Already Registered? <a href="{{ url_for('login') }}">Login</a></small>
-                </p>
             </div>
         </div>
     </div>

@@ -43,6 +43,9 @@ Sign In
                             {% endif %}
                             <!-- Validation password input -->
                         </div>
+                         <p class="info">
+                            <small>Need an Account? <a href="{{ url_for('register') }}">Register</a></small>
+                        </p>
                     </fieldset>
                     <div class="form-group">
                         <div class="buttons text-center">
@@ -50,9 +53,7 @@ Sign In
                         </div>
                     </div>
                 </form>
-                <p class="info">
-                    <small>Need an Account? <a href="{{ url_for('register') }}">Register</a></small>
-                </p>
+                
             </div>
         </div>
     </div>
