@@ -11,21 +11,19 @@ Edit Sandwich
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
                         <legend>Edit Sandwich</legend>
-                        <!-- Sandwich Category -->
+                         <!-- Sandwich Category -->
                         <div class="form-group">
-                            {{ form.sandwich_category.label(class="form-control-label") }}
-                            <!-- Validation Sandwich Category input -->
-                            {% if form.sandwich_category.errors %}
-                                {{ form.sandwich_category(class="form-control form-control-lg is-invalid") }}
-                                <div class="invalid-feedback">
-                                    {% for error in form.sandwich_category.errors %}
-                                        <span>{{ error }}</span>
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                {{ form.sandwich_category(class="form-control form-control-lg") }}
-                            {% endif %}
-                            <!-- Validation Sandwich Category input -->
+                            <label for="validationCustom04" class="form-control-label">Sandwich Category</label>
+                            <select class="form-select form-select-lg" id="validationCustom04" name="sandwich_category" required>
+                                <option selected disabled value="">Choose an Option</option>
+                                {% for category in categories %}
+                                <option>{{ category.sandwich_category }}</option>
+                                {% endfor %}
+                            </select>
+                            <!-- Invalid message -->
+                            <div class="invalid-feedback">
+                                <span>Choose a valid option</span>
+                            </div>
                         </div>
                         <!-- /Sandwich Category -->
                         <!-- Sandwich Name -->
@@ -128,22 +126,6 @@ Edit Sandwich
                                 {{ form.duration(class="form-control form-control-lg") }}
                             {% endif %}
                             <!-- Validation Duration input -->
-                        </div>
-                        <!-- Difficulty -->
-                        <div class="form-group">
-                            {{ form.difficulty.label(class="form-control-label") }}
-                            <!-- Validation Difficulty input -->
-                            {% if form.difficulty.errors %}
-                                {{ form.difficulty(class="form-control form-control-lg is-invalid") }}
-                                <div class="invalid-feedback">
-                                    {% for error in form.difficulty.errors %}
-                                        <span>{{ error }}</span>
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                {{ form.difficulty(class="form-control form-control-lg") }}
-                            {% endif %}
-                            <!-- Validation Difficulty input -->
                         </div>
                     </fieldset>
                     <div class="form-group">

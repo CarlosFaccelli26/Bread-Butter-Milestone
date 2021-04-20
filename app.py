@@ -153,11 +153,6 @@ class AddSandwichForm(FlaskForm):
 
 
 class EditSandwich(FlaskForm):
-    sandwich_category = SelectField(
-        'Sandwich Category', choices=[
-            (None, 'Select an Option'),
-            ('Gluten Free', 'Gluten Free'),
-            ('Vegetarian', 'Vegetarian')])
     sandwich_name = StringField(
         'Sandwich Name', validators=[DataRequired(), Length(min=3, max=20)])
     sandwich_description = TextAreaField(
@@ -168,12 +163,6 @@ class EditSandwich(FlaskForm):
     duration = IntegerField(
         'Duration', validators=[DataRequired()],
         render_kw={'placeholder': 'Duration of sandwich'})
-    difficulty = SelectField(
-        'Diffulty', choices=[
-            (None, 'Select an Option'),
-            ('Easy', 'Esasy'),
-            ('Medium', 'Medium'),
-            ('Hard', 'Hard')])
     submit = SubmitField('Update')
 
 
@@ -266,18 +255,19 @@ def sandwich(sandwich_id):
 @app.route('/edit_sandwich/<sandwich_id>', methods=['GET', 'POST'])
 @login_required
 def edit_sandwich(sandwich_id):
+    categories = mongo.db.categories.find()
+    sandwiches = mongo.db.sandwiches.find()
     form = EditSandwich()
     sandwich = mongo.db.sandwiches.find_one({'_id': ObjectId(sandwich_id)})
     if request.method == 'POST':
         submit = {
-            'sandwich_category': form.sandwich_category.data,
+            'sandwich_category': request.form.get('sandwich_category'),
             'sandwich_name': form.sandwich_name.data,
             'sandwich_description': form.sandwich_description.data,
             'imageUrl': form.image_Url.data,
             'ingredients': form.ingredients.data,
             'portion': form.portion.data,
             'duration': form.duration.data,
-            'difficulty': form.difficulty.data,
             'created_by': current_user.username
         }
         mongo.db.sandwiches.update({'_id': ObjectId(sandwich_id)}, submit)
@@ -290,8 +280,10 @@ def edit_sandwich(sandwich_id):
         form.ingredients.data = sandwich['ingredients']
         form.portion.data = sandwich['portion']
         form.duration.data = sandwich['duration']
-        form.difficulty.data = sandwich['difficulty']
-    return render_template('edit_sandwich.html', form=form, sandwich=sandwich)
+    return render_template('edit_sandwich.html',
+                           form=form, sandwich=sandwich,
+                           categories=categories,
+                           sandwiches=sandwiches)
 
 
 @app.route('/delete_sandwich/<sandwich_id>', methods=['GET', 'POST'])
