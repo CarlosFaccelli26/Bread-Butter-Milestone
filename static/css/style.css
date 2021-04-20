@@ -99,7 +99,7 @@ label {
 }
 
 .btn-submit {
-    background-color: #539416;
+    background-color: #f55308;
     color: #fff;
     transition: all .5s ease-in-out;
     border-radius: 12px;
@@ -116,14 +116,30 @@ label {
 
 .btn-submit:hover {
     background-color: #fff;
-    border: 1px solid #539416;
-    color: #539416;
+    border: 1px solid #f55308;
+    color: #f55308;
 }
 
 .btn-cancel:hover {
     background-color: #fff;
     border: 1px solid #f50808;
     color: #f50808;
+}
+
+/* ================ Add Sandwich and Edit Sandwich ================ */
+
+.btn-sandwich-form {
+    background-color: #539416;
+    color: #fff;
+    transition: all .5s ease-in-out;
+    border-radius: 12px;
+    padding: .7rem 1.2rem;
+}
+
+.btn-sandwich-form:hover {
+    background-color: #fff;
+    border: 1px solid #539416;
+    color: #539416;
 }
 
 /* ================ Register and Login Form ================ */
@@ -476,7 +492,6 @@ figure:hover::before {
     padding: 40px;
     border-radius: 12px;
     position: relative;
-    margin-top: 15px;
 }
 
 .sandwich-description i {
