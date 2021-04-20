@@ -59,7 +59,7 @@ Home
                             <img src="{{ sandwich.imageUrl }}" class="d-block w-100" alt="slide-image">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>{{ sandwich.sandwich_name }}</h5>
-                                <p class="truncate">{{ sandwich.sandwich_description }}</p>
+                                <p>{{ sandwich.sandwich_description }}</p>
                             </div>
                         </div>
                         {% endfor %}
@@ -95,7 +95,7 @@ Home
                             <div class="card-body">
                                 <a class="card-title"
                                     href="{{ url_for('sandwich', sandwich_id=sandwich._id) }}">{{ sandwich.sandwich_name }}</a>
-                                <p class="card-text">
+                                <p class="card-text text-truncate">
                                     {{ sandwich.sandwich_description }}
                                 </p>
                                 <p class="text-truncate">
