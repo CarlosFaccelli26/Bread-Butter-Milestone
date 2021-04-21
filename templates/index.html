@@ -54,7 +54,7 @@ Home
                             aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
-                        {% for sandwich in sandwiches %}
+                        {% for sandwich in sandwich_carousel %}
                         <div class="carousel-item {% if loop.index == 1%} active {% endif %}">
                             <img src="{{ sandwich.imageUrl }}" class="d-block w-100" alt="slide-image">
                             <div class="carousel-caption d-none d-md-block">

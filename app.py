@@ -169,8 +169,14 @@ class EditSandwich(FlaskForm):
 @app.route('/')
 @app.route('/index')
 def index():
+    # sandwiches that will be display on the carousel
+    sandwich_carousel = list(
+        mongo.db.sandwiches.find().limit(3).sort('snadwich_name', 1))
+    # sandwiches that will be display on cards
     sandwiches = list(mongo.db.sandwiches.find().limit(8))
-    return render_template('index.html', sandwiches=sandwiches)
+    return render_template('index.html',
+                           sandwiches=sandwiches,
+                           sandwich_carousel=sandwich_carousel)
 
 
 @app.route('/register', methods=['GET', 'POST'])
