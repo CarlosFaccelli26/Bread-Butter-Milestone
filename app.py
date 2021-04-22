@@ -332,7 +332,7 @@ def all_sandwich():
 def search():
     query = request.form.get('query')
     sandwiches = list(mongo.db.sandwiches.find({'$text': {'$search': query}}))
-    return render_template('index.html',
+    return render_template('all_sandwich.html',
                            sandwiches=sandwiches)
 
 
