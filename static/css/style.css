@@ -337,8 +337,7 @@ label {
 
 .small-text p a:hover {
     color: #539416;
-    letter-spacing: 1px;
-    font-size: 20px;
+    letter-spacing: 1.5px;
 }
 
 /* Carousel */
@@ -470,7 +469,7 @@ figure:hover::before {
 /* ================ Sandwich ================ */
 .sandwich {
     min-height: 800px;
-    padding: 0 50px;
+    padding: 20px 50px;
     margin: 0 0 20px 0;
 }
 
@@ -486,7 +485,7 @@ figure:hover::before {
 }
 
 .info-sandwich h3:hover {
-    font-size: 60px;
+    letter-spacing: 3px;
 }
 
 .info-sandwich p {
