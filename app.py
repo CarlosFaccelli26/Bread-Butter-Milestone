@@ -26,16 +26,20 @@ if os.path.exists('env.py'):
 
 
 app = Flask(__name__)
+# app config
 app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 app.secret_key = os.environ.get('SECRET_KEY')
+# initializing mono
 mongo = PyMongo(app)
 db = mongo.db
+# initializing login mananger
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
 
+# user loader for flask-login
 @login_manager.user_loader
 def load_user(username):
     user = mongo.db.users.find_one({'username': username})
@@ -44,6 +48,7 @@ def load_user(username):
     return User(user['username'], user['email'], user['_id'])
 
 
+# user class
 class User(UserMixin):
     def __init__(self, username, email, _id):
         self.username = username
@@ -67,6 +72,7 @@ class User(UserMixin):
         return check_password_hash(hashed_password, password)
 
 
+# registration form so the user can sign up on the webiste
 class RegistrationForm(FlaskForm):
     username = StringField(
         'Username',
@@ -105,6 +111,7 @@ class RegistrationForm(FlaskForm):
                 Please choose a different one.""")
 
 
+# login form so user can sing in on the website
 class LoginForm(FlaskForm):
     username = StringField(
         'Username',
@@ -117,6 +124,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 
+# form to add sandwich 
 class AddSandwichForm(FlaskForm):
     # sandwich_category = SelectField(
     #     'Sandwich Category', choices=[
@@ -152,6 +160,7 @@ class AddSandwichForm(FlaskForm):
     submit = SubmitField('Add')
 
 
+# form to edit sandwiches
 class EditSandwich(FlaskForm):
     sandwich_name = StringField(
         'Sandwich Name', validators=[DataRequired(), Length(min=3, max=20)])
@@ -169,6 +178,10 @@ class EditSandwich(FlaskForm):
 @app.route('/')
 @app.route('/index')
 def index():
+    '''
+        Index page will be available to all users signed in or not
+        will display sandwiches that other users added with a limit of 8 sandwiches
+    '''
     # sandwiches that will be display on the carousel
     sandwich_carousel = list(
         mongo.db.sandwiches.find().limit(3).sort('snadwich_name', 1))
@@ -225,6 +238,7 @@ def logout():
 @app.route('/add_sandwich', methods=['GET', 'POST'])
 @login_required
 def add_sandwich():
+    # categories variable will be used for selectfield on the template
     categories = mongo.db.categories.find()
     sandwiches = mongo.db.sandwiches.find()
     form = AddSandwichForm()
