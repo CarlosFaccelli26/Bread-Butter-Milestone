@@ -185,10 +185,8 @@ label {
 
 .search-form {
     width: 100%;
-    /* background-color: rgb(202, 202, 202); */
     padding: 0 20px;
     border-radius: 12px;
-    display: none;
 }
 
 .search-form legend {
@@ -204,7 +202,28 @@ label {
 
 .search-form .btn {
     color: #fff;
+    transition: all .5s ease-in-out;
 }
+
+.search-form .btn-search {
+    background-color: #f55308;
+    color: #1a1a1a;
+    border: .3px solid #1a1a1a;
+}
+
+.search-form .btn-search-invert {
+    background-color: #1a1a1a;
+    color: #f55308;
+    border: .3px solid #f55308;
+}
+
+ .search-form .btn-search:hover {
+    background-color: #f55308cb;
+}
+
+.search-form .btn-search-invert:hover {
+    background-color: #1a1a1ad5;
+} 
 
 .btn i {
     font-size: 15px;
@@ -310,34 +329,6 @@ label {
 .fadeInLeftBig { 
     -webkit-animation-name: fadeInLeftBig; 
     animation-name: fadeInLeftBig; 
-}
-
-.small-text {
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.fadeInRightBig { 
-    -webkit-animation-name: fadeInRightBig; 
-    animation-name: fadeInRightBig; 
-}
-
-.small-text p {
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.small-text p a {
-    text-decoration: none;
-    transition: all .5s ease-in-out;
-    color: #539416;
-}
-
-.small-text p a:hover {
-    color: #539416;
-    letter-spacing: 1.5px;
 }
 
 /* Carousel */
@@ -690,27 +681,6 @@ figure:hover::before {
     } 
 }
 
-@-webkit-keyframes fadeInRightBig { 
-    0% { 
-        opacity: 0; 
-        -webkit-transform: translateX(200px); 
-    } 
-    100% { 
-        opacity: 1; 
-        -webkit-transform: translateX(0); 
-    } 
-} 
-@keyframes fadeInRightBig { 
-    0% { 
-        opacity: 0; 
-        transform: translateX(200px); 
-    } 
-    100% { 
-        opacity: 1; 
-        transform: translateX(0); 
-    } 
-}
-
 @-webkit-keyframes shine {
 	100% {
 		left: 125%;
@@ -812,9 +782,13 @@ figure:hover::before {
         width: 100%;
         box-shadow: none;
     }
-
+    /* Search form */
     .search {
         width: 60%;
+    }
+
+    .search-form .btn {
+        padding: 10px 2%;
     }
 
     /* Forms */

@@ -8,37 +8,23 @@ Home
         <div class="row">
             <div class="col-12">
                 <div class="searcher">
-                    <button class="btn btn-lg search-button" onclick="search()">
+                    <button class="btn btn-lg search-button">
                         <i id="search-trigger" class="fas fa-search searcher-icon"></i>
-                        <span id="search-text">Looking for Something?</span>
                     </button>
                     <form method="POST" id="form" class="search-form" action="{{ url_for('search') }}">
                         <input type="search" name="query" id="query" class="search" placeholder="Type name or ingredients of a sandwich" required>
-                        <a href="{{ url_for('index')}}" class="btn btn-danger">Reset</a>
-                        <button type="submit" class="btn btn-success"><i class="fas fa-search"></i>Go</button>
+                        <a href="{{ url_for('index')}}" class="btn btn-search-invert">Reset</a>
+                        <button type="submit" class="btn btn-search"><i class="fas fa-search"></i>Go</button>
                     </form>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="col-12">
                 <div class="main-text animated fadeInLeftBig">
                     <h1>
                         <span class="capital-letter">W</span>hat is a life without the best secrets? Share your recipe, got new ideas and dont't miss more than <span>5000</span> tasty experiences!
                     </h1>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-6">
-                <div class="small-text animated fadeInRightBig">
-                    {% if current_user.username %}
-                        <p>Eureka!! I found the tastiest recipe.
-                            <a href="{{ url_for('add_sandwich') }}">Share your sandwich!</a>
-                        </p>
-                    {% else %}
-                        <p>Is your mind blank? Are you looking for the perfect sandwich?
-                        <a href="{{ url_for('register') }}">Register</a>
-                    </p>
-                    {% endif %}
                 </div>
             </div>
         </div>
