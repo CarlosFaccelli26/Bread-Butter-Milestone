@@ -90,7 +90,7 @@ class RegistrationForm(FlaskForm):
         'Confirm Password',
         validators=[DataRequired(), EqualTo('password')],
         render_kw={'placeholder': 'Confirm Password'})
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Register')
 
     # check if username exist
     def validate_username(self, username):
@@ -121,7 +121,7 @@ class LoginForm(FlaskForm):
         'Password',
         validators=[DataRequired()],
         render_kw={'placeholder': 'Password'})
-    submit = SubmitField('Sign In')
+    submit = SubmitField('Log in')
 
 
 # form to add sandwich 
