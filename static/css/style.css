@@ -484,8 +484,8 @@ figure:hover::before {
     position: relative;
 }
 
-.sandwich-description i {
-    font-weight: 700;
+.sandwich-description h3 {
+    text-transform: capitalize;
 }
 
 .sandwich-description p span {
