@@ -101,14 +101,16 @@ label {
 .btn-submit {
     background-color: #f55308;
     color: #fff;
+    border: .3px solid #fff;
     transition: all .5s ease-in-out;
     border-radius: 12px;
     padding: .7rem 1.2rem;
 }
 
-.btn-cancel {
-    background-color: #f50808;
+.btn--cancel {
+    background-color: #1a1a1a;
     color: #fff;
+    border: .3px solid #fff;
     transition: all .5s ease-in-out;
     border-radius: 12px;
     padding: .7rem 1.2rem;
@@ -116,30 +118,14 @@ label {
 
 .btn-submit:hover {
     background-color: #fff;
-    border: 1px solid #f55308;
     color: #f55308;
+    border: .3px solid #f55308;
 }
 
-.btn-cancel:hover {
+.btn--cancel:hover {
     background-color: #fff;
-    border: 1px solid #f50808;
-    color: #f50808;
-}
-
-/* ================ Add Sandwich and Edit Sandwich ================ */
-
-.btn-sandwich-form {
-    background-color: #539416;
-    color: #fff;
-    transition: all .5s ease-in-out;
-    border-radius: 12px;
-    padding: .7rem 1.2rem;
-}
-
-.btn-sandwich-form:hover {
-    background-color: #fff;
-    border: 1px solid #539416;
-    color: #539416;
+    border: .3px solid #1a1a1a;
+    color: #1a1a1a;
 }
 
 /* ================ Register and Login Form ================ */
