@@ -193,22 +193,24 @@ label {
 
 .search-form .btn-search {
     background-color: #f55308;
-    color: #1a1a1a;
     border: .3px solid #1a1a1a;
 }
 
 .search-form .btn-search-invert {
     background-color: #1a1a1a;
-    color: #f55308;
     border: .3px solid #f55308;
 }
 
  .search-form .btn-search:hover {
-    background-color: #f55308cb;
+    background-color: #1a1a1a;
+    color: #f55308;
+    border: .3px solid #f55308;
 }
 
 .search-form .btn-search-invert:hover {
-    background-color: #1a1a1ad5;
+    background-color: #f55308;
+    color: #1a1a1a;
+    border: .3px solid #1a1a1a;
 } 
 
 .btn i {
