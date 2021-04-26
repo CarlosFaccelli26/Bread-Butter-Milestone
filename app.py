@@ -2,7 +2,8 @@ import os
 from flask import (
     Flask, render_template,
     request, flash,
-    redirect, url_for)
+    redirect, url_for,
+    abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_paginate import Pagination, get_page_args
@@ -179,8 +180,10 @@ class EditSandwich(FlaskForm):
 @app.route('/index')
 def index():
     '''
-        Index page will be available to all users signed in or not
-        will display sandwiches that other users added with a limit of 8 sandwiches
+        Index page will be available to all users signed
+        in or not
+        will display sandwiches
+        that other users added with a limit of 8 sandwiches
     '''
     # sandwiches that will be display on the carousel
     sandwich_carousel = list(
@@ -279,6 +282,8 @@ def edit_sandwich(sandwich_id):
     sandwiches = mongo.db.sandwiches.find()
     form = EditSandwich()
     sandwich = mongo.db.sandwiches.find_one({'_id': ObjectId(sandwich_id)})
+    if sandwich['created_by'] != current_user:
+        abort(403)
     if request.method == 'POST':
         submit = {
             'sandwich_category': request.form.get('sandwich_category'),
@@ -308,6 +313,9 @@ def edit_sandwich(sandwich_id):
 
 @app.route('/delete_sandwich/<sandwich_id>', methods=['GET', 'POST'])
 def delete_sandwich(sandwich_id):
+    sandwich = mongo.db.sandwiches.find_one({'_id': ObjectId(sandwich_id)})
+    if sandwich['created_by'] != current_user:
+        abort(403)
     mongo.db.sandwiches.remove({'_id': ObjectId(sandwich_id)})
     flash('Sandwich Deleted', 'success')
     return redirect(url_for('index'))
