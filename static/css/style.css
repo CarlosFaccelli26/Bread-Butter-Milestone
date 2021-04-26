@@ -675,6 +675,41 @@ figure:hover::before {
     text-transform: capitalize;
 }
 
+/* ================ Errors ================ */
+
+.errorhandler {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.errorhandler {
+    background-color: #1a1a1a;
+}
+
+.error {
+    color: #fff;
+}
+
+.error h1 {
+    font-size: 32px;
+    text-align: center;
+}
+
+.error p {
+    text-align: center;
+}
+
+.error p a {
+    color: #f55308;
+    text-decoration: none;
+    transition: all .5s ease-in-out;
+}
+
+.error p a:hover {
+    letter-spacing: 2px;
+}
+
 /* ANIMAATIONS */
 
 @-webkit-keyframes bounce { 

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="errorhandler">
+        <div class="error">
+            <h1>You are not allowed to make that action</h1>
+            <p>Please go back and try again <a href="{{ url_for('index') }}">Home</a></p>
+        </div>
+    </section>
+{% endblock %}
