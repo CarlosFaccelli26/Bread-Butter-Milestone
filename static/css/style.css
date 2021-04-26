@@ -508,6 +508,35 @@ figure:hover::before {
 
 .options .btn {
     color: #fff;
+    transition: all .5s ease-in-out;
+}
+
+.btn-edit {
+    background-color: #f55308;
+    border: .3px solid #fff;
+    transition: all .5s ease-in-out;
+    border-radius: 12px;
+    padding: .5rem 1rem;
+}
+
+.btn-cancel {
+    background-color: #1a1a1a;
+    border: .3px solid #fff;
+    transition: all .5s ease-in-out;
+    border-radius: 12px;
+    padding: .5rem 1rem;
+}
+
+.btn-edit:hover {
+    background-color: #fff;
+    color: #f55308;
+    border: .3px solid #f55308;
+}
+
+.btn-cancel:hover {
+    background-color: #fff;
+    color: #1a1a1a;
+    border: .3px solid #1a1a1a;
 }
 
 .modal-open {
@@ -516,6 +545,18 @@ figure:hover::before {
 
 .modal-title {
     margin-left: auto;
+}
+
+.modal-footer .btn {
+    color: #fff;
+}
+
+.modal-footer .btn-edit:hover {
+    color: #f55308;
+}
+
+.modal-footer .btn-cancel:hover {
+    color: #1a1a1a;
 }
 
 .card-body-btn {

@@ -46,8 +46,8 @@ Sandwich
                     {% if sandwich.created_by == current_user.username %}
                         <div class="options">
                             <a href="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}"
-                                    class="btn btn-info btn-lg">Edit</a>
-                            <button class="btn btn-danger btn-lg" data-bs-toggle="modal"
+                                    class="btn btn-edit btn-lg">Edit</a>
+                            <button class="btn btn-cancel btn-lg" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal">Delete</button>
                         </div>
                     {% endif %}
@@ -65,9 +65,9 @@ Sandwich
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-edit" data-bs-dismiss="modal">No</button>
                 <form action="{{ url_for('delete_sandwich', sandwich_id=sandwich._id) }}">
-                    <input class="btn btn-danger" type="submit" value="Delete">
+                    <input class="btn btn-cancel" type="submit" value="Delete">
                 </form>
             </div>
         </div>
