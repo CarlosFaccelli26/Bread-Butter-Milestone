@@ -771,15 +771,6 @@ figure:hover::before {
         font-size: 22px;
     }
 
-    .small-text {
-        height: auto;
-    }
-
-    .small-text p {
-        font-size: 20px;
-        text-align: center;
-    }
-
     .card {
         width: 80%;
         margin: 20px auto;
@@ -836,10 +827,6 @@ figure:hover::before {
 
     .main-text h1 {
         font-size: 30px;
-    }
-
-    .small-text {
-        height: auto;
     }
 
     .card {
