@@ -25,13 +25,13 @@ from flask_login import (
 if os.path.exists('env.py'):
     import env
 
-
+# initializing flask
 app = Flask(__name__)
 # app config
 app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 app.secret_key = os.environ.get('SECRET_KEY')
-# initializing mono
+# initializing mongo
 mongo = PyMongo(app)
 db = mongo.db
 # initializing login mananger
@@ -241,7 +241,8 @@ def logout():
 @app.route('/add_sandwich', methods=['GET', 'POST'])
 @login_required
 def add_sandwich():
-    # categories variable will be used for selectfield on the template
+    '''Categories variable will be used to render
+       categories in a dynamic way on the template '''
     categories = mongo.db.categories.find()
     sandwiches = mongo.db.sandwiches.find()
     form = AddSandwichForm()
@@ -278,11 +279,18 @@ def sandwich(sandwich_id):
 @app.route('/edit_sandwich/<sandwich_id>', methods=['GET', 'POST'])
 @login_required
 def edit_sandwich(sandwich_id):
+    '''Categories variable will be used to render
+       categories in a dynamic way on the template '''
     categories = mongo.db.categories.find()
+    # getting all sandwiches from the db
     sandwiches = mongo.db.sandwiches.find()
     form = EditSandwich()
     sandwich = mongo.db.sandwiches.find_one({'_id': ObjectId(sandwich_id)})
-    if sandwich['created_by'] != current_user:
+
+    '''If the username is not the one who create the
+       sandwich it won't be available to edit, instead
+       will show a a 403 error'''
+    if sandwich['created_by'] != current_user.username:
         abort(403)
     if request.method == 'POST':
         submit = {
@@ -314,7 +322,10 @@ def edit_sandwich(sandwich_id):
 @app.route('/delete_sandwich/<sandwich_id>', methods=['GET', 'POST'])
 def delete_sandwich(sandwich_id):
     sandwich = mongo.db.sandwiches.find_one({'_id': ObjectId(sandwich_id)})
-    if sandwich['created_by'] != current_user:
+    '''If the username is not the one who create the
+       sandwich it won't be available to delete the sandwich, instead
+       will show a a 403 error'''
+    if sandwich['created_by'] != current_user.username:
         abort(403)
     mongo.db.sandwiches.remove({'_id': ObjectId(sandwich_id)})
     flash('Sandwich Deleted', 'success')
