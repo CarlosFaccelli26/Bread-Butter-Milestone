@@ -1,45 +1,88 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Bread And Butter **Milestone Project**
 
-Welcome CarlosFaccelli26,
+You can see the live project [Here]()
+Bread and Butter is a project which function is to create update delete and read [CRUD]() functionality.
+The idea is based on my work, currently I'm working in a Spar more especific in the deli sector, where I prepare sandwiches for costumers among others stuff.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+# User Experience
+## User Stories
+  * **As a User of the website**
+    - I want to have an easily navigaton
 
-## Gitpod Reminders
+  * **As a First costumer**
+    - I want the ability to register and login easely
+    - Be able to see some of the sandwiches on the main page
+    - Be able to add, delete or update sandwiches
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+  * As a Owner
+    - Have a eye catching website
 
-`python3 -m http.server`
+# Design
+  * **Color Scheme**
+    - Main colors used throught the website are white, black, and orange
+    - Font used:
 
-A blue button should appear to click: *Make Public*,
+# Technologies and Libraries
+  - **Technologies Used**
+    1. [HTML]()
+        - Used to create the content of the website.
+    2. [CSS]()
+        - Used to give the attractive design of the website.
+    3. [JavaScript]()
+        - Used to make the website interactive.
+    4. [Python]()
+       - Used to handle the backend of the webiste
+    5. [MongoDb]()
+       - Database to store information about users and sandwiches that has been added
+  - **Libraries Used**
+    1. [Boostrap]()
+        - Userd To create a nice layout clear layout
+    2. [Font Awesome]()
+        - Used to create a more attractive typography
+    3. [Flask]()
+        - Framework that works with python, all project is based on Flask
+    4. [Flask Login]()
+        - Dependency of Flask. Used to handle log in functionality
+    4. [Heroku]()
+        - Platform used to deploy the project
+    5. [Git]()
+        - Used to version control of the project
+    6. [GitHub]()
+        - Used to stored the project
+    7. [Balsamiq]()
+       - Used to create the mockup which will be the base of the live project
+    8. [Flask WTF]()
+       - Used to create forms on python and rendering on the templates.
 
-Another blue button should appear to click: *Open Browser*.
+# Features
+  1. Responsive on all devices
+  2. Description Section by Section
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+# Testing
+Project was tested on validators online such as:
+  - [HTML Validator]()
+    - [View]()
+  - [CSS Validator]()
+    - [View]()
+  - [Javascript Validator]()
+    - [View]()
 
-A blue button should appear to click: *Make Public*,
+# Testing UX Stories
+1. As a First costumer:
 
-Another blue button should appear to click: *Open Browser*.
+2. As a Owner
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+3. As a User of the website
 
-## Updates Since The Instructional Video
+# Testing Project
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+# Deployment
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+# Credits
+  1. Flask Login, Flask Wtf, Modal [Corey Schafer]()
+  2. Flask Paginate [Darilli Games](https://github.com/DarilliGames/flaskpaginate/blob/master/app.py)
+  3. Back to top button [W3S School](https://www.w3schools.com/howto/)
+  4. Thanks to my mentor [Rahul]()
+  
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
