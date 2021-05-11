@@ -127,6 +127,12 @@ Project was tested on validators online such as:
    All these images test how each input will behave if the input has not been filled. All field must be filled to submit the form and the sandwich will be added.
    ![Sandwich Added](static/images/screenshots/sandwich_added.png)
    If all the fields are filled and show no errors the form will redirect the user to the main page and show a message wich contain the text describing that the sandwich has been added.
+5. Edit Sandwich:
+   - ![Edit Sandwich Template](static/images/screenshots/edit_sandwich_template.png)
+   ![Edit Sandwich Template1](static/images/screenshots/edit_sandwich_form.png)
+   Edit sandwich template will have a form same layout of add sandwich template. With the diffrerence of all the fills will be populated with the data that was used to add the sandwich, so the user won't waste time filling up all the fields again and then submit the form.
+   ![Edit Sandwich Success](static/images/screenshots/sandwich_updated_message.png)
+   Once the user has updated the sandwich the form will redirect the user to the sandwich tempalte with a message with a text describing the action that the user has realized.
 
 # Deployment
 
