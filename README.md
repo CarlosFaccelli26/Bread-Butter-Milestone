@@ -113,6 +113,20 @@ Project was tested on validators online such as:
    If password doesn't match the form won't be submitted and the user won't be register. Password must match to user be able to register on the webiste.
    ![Register Success](static/images/screenshots/register_success.png)
    Once the user has filled all the inputs and inputs are correct and no errors are showed the user will be successfully registered. User will be redirect to the login page with a message describing that registration was a success.
+4. Adding sandwich:
+   - ![Add Sandwich Template](static/images/screenshots/add_sandwich_template.png)
+   ![Add Sandwich Tempalte 1](static/images/screenshots/add_sandwich_template1.png)
+   Add sandwich page will consist in a form with pretty much the same layout than register and login page. The only different will be that the form will have more fields to fill up.
+   ![Check Errors](static/images/screenshots/add_sandwich_check.png)
+   ![Check Errors1](static/images/screenshots/add_sandwich_check1.png)
+   ![Check Errors2](static/images/screenshots/add_sandwich_check2.png)
+   ![Check Errors3](static/images/screenshots/add_sandwich_check3.png)
+   ![Check Errors4](static/images/screenshots/add_sandwich_check4.png)
+   ![Check Errors5](static/images/screenshots/add_sandwich_check5.png)
+   ![Check Error6](static/images/screenshots/edd_sandwich_check6.png)
+   All these images test how each input will behave if the input has not been filled. All field must be filled to submit the form and the sandwich will be added.
+   ![Sandwich Added](static/images/screenshots/sandwich_added.png)
+   If all the fields are filled and show no errors the form will redirect the user to the main page and show a message wich contain the text describing that the sandwich has been added.
 
 # Deployment
 
