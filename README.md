@@ -93,7 +93,26 @@ Project was tested on validators online such as:
     - Website has an easy navigation. Each button will have a descriptive text that will give the user a hint of what the user will be able to do after the user clicks on the button. Website doesn't have any unnecessary complexity to navigate so the user won't be fustrated to looking for something and wasting time.
 
 # Testing Project
-
+  - All project has been tested manually for me and friends which I share the link of the website.
+1. Main Page:
+2. Login Page:
+   - ![Login Template](static/images/screenshots/login_template.png)
+   ![Login Temaplate 1](static/images/screenshots/login_template1.png)
+   As we can see the Login page will consist in a simple form with a backgorund of black and white, playing with the color of text to give a nice contrast.
+   ![Valid Login](static/images/screenshots/valid_login.png)
+   If user type the correct credentials will be redirect to the main page with a message letting know the user that he was successfully logged in.
+   ![Invalid Login](static/images/screenshots/invalid_login.png)
+   If user use a credentials that doesn't exist or just an typing error the form won't be submitted and the user will be redirect to the login page with a massage describing that username or password are incorrect and he must try again.
+3. Register Page:
+   - ![Register Tempalte](static/images/screenshots/register_template.png)
+   ![Register Template 1](static/images/screenshots/register_template2.png)
+   Register page wil be basicly the same layout than login page, same contrast between black orange and white.
+   ![Check Errors](static/images/screenshots/register_check.png)
+   If user doesn't accomplish the pattern of the input field, the form when submitted will give an error displaying the error in a message with a red text. Same if the user try to register with a email already in use in the database, it is not possible to register with an email already registered.
+   ![Check errors 1](static/images/screenshots/register_check1.png)
+   If password doesn't match the form won't be submitted and the user won't be register. Password must match to user be able to register on the webiste.
+   ![Register Success](static/images/screenshots/register_success.png)
+   Once the user has filled all the inputs and inputs are correct and no errors are showed the user will be successfully registered. User will be redirect to the login page with a message describing that registration was a success.
 
 # Deployment
 
