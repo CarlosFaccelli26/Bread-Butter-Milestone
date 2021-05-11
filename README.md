@@ -147,6 +147,11 @@ Project was tested on validators online such as:
    If user filled the form and submit it but the webiste doent't find the sandwich that the user is looking for the page will show a massage describing the there is no results for that search.
    ![Show Results](static/images/screenshots/show_search_results.png)
    If user fill the input and the website has the sandwich that the user is looking for the website will display the sandwich bellow the carousel on the main page.
+8. Delete Sandwich:
+   - ![Modal](static/images/screenshots/modal_popup.png)
+   If user wants to delete the sandwich, if the user was the creator of the sandwich will be able to see two buttons, one for update and the other to delete. If user clicks on delete button a modal will popup with two buttons and a text asking the user if the user is sure about deleting the sandwich. The buttons will have the actions of delete the sandwich or close the modal.
+   ![Delete Success](static/images/screenshots/sandwich_deleted.png)
+   If the user deletes the sandwich user will be redirect to the main page with a flash message describing the action the the user has just make.
 
 # Deployment
 
