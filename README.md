@@ -133,6 +133,20 @@ Project was tested on validators online such as:
    Edit sandwich template will have a form same layout of add sandwich template. With the diffrerence of all the fills will be populated with the data that was used to add the sandwich, so the user won't waste time filling up all the fields again and then submit the form.
    ![Edit Sandwich Success](static/images/screenshots/sandwich_updated_message.png)
    Once the user has updated the sandwich the form will redirect the user to the sandwich tempalte with a message with a text describing the action that the user has realized.
+6. Individual Sandwich:
+   - ![Sandwich Template](static/images/screenshots/individual_sandwich.png)
+   Sandwich template will display a single sandwich with all the details of the sandwich. In these case the sandwich was created by the same user. This is because there is two buttons which give two different actions. One is to update the sandwich the other to delete it. Only to the user that has created the sandwich will appear the two buttons.
+   ![Sandwich Template1](static/images/screenshots/individual_sandwich1.png)
+   As we can see in the page the two buttons doesn't appear, that is because the user didn't create the sandwich, for these reason user can't edit or delete the sandwich. If user type the route to edit or delete the sandwich the page will show an error [403](https://en.wikipedia.org/wiki/HTTP_403) customize. Next will be attached the screenshot will describe these error.
+   ![Error Handler](static/images/screenshots/error_handler.png)
+   As we can see if the user try to delete or update a sandwich that the user hasn't created the page will show the error with a link to go back to the main page.
+7. Search From:
+   - ![Check Search Form](static/images/screenshots/check_search_input.png)
+   Search form is located on the main page at the bottom of the page, below the navbar. If user doesn't fill the input the form won't be submitted.
+   ![Fail Results](static/images/screenshots/search_result_fail.png)
+   If user filled the form and submit it but the webiste doent't find the sandwich that the user is looking for the page will show a massage describing the there is no results for that search.
+   ![Show Results](static/images/screenshots/show_search_results.png)
+   If user fill the input and the website has the sandwich that the user is looking for the website will display the sandwich bellow the carousel on the main page.
 
 # Deployment
 
