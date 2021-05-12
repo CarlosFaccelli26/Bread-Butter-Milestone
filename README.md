@@ -157,6 +157,21 @@ Project was tested on validators online such as:
    If user is not currently logged in and try to access any page or functionality that require to be logged in, the user will be redirect to the login page with a message asking the user to login to gain access to the page.
 
 # Deployment
+Project was stored on [GitHub]() and deploy on [Heroku](). This change due the previous milestone project is due [GitHub]() does not support backend code however [Heroku]() it allows to deploy code base on backend.
+First of all I created a repo on [GitHbu]() as i show in the next picture.
+![New Github Repo]()
+Once the repo is created we create a new app on [Heroku]():
+![Creating New App](static/images/screenshots/creating_new_app.png)
+After we created the app, we must choose the region that we are currently living in and the name of the app:
+![Region and Name](static/images/screenshots/app_and_region.png)
+After we create the app give a name and provide the region that we are currently in we'll find a dashboard in which the first step is to connect the app with the repo on [GitHub]():
+![GitHub Connect](static/images/screenshots/connect_github_repo.png)
+We must be sure that the name that we include to connect the github repo match with name of the repo on github otherwise it won't find any repo with the name provided:
+![Github Connect 1](static/images/screenshots/connect_github_repo1.png)
+Once we connect the github repo with heroku we can click on settings.
+![Settings](static/images/screenshots/settings.png)
+After clicking on settings we scroll down until we find a button, if we click on that button it will reveal some variables that we need to fill up with the variables that we provide in the code of the project for example: Secret Key for flask, name of the database, the URI etc....
+![Configuration Variables](static/images/screenshots/configuration_of_variables.png)
 
 # Credits
   1. Flask Login, Flask Wtf, Modal [Corey Schafer]()
