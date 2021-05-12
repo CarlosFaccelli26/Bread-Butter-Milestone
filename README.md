@@ -152,6 +152,9 @@ Project was tested on validators online such as:
    If user wants to delete the sandwich, if the user was the creator of the sandwich will be able to see two buttons, one for update and the other to delete. If user clicks on delete button a modal will popup with two buttons and a text asking the user if the user is sure about deleting the sandwich. The buttons will have the actions of delete the sandwich or close the modal.
    ![Delete Success](static/images/screenshots/sandwich_deleted.png)
    If the user deletes the sandwich user will be redirect to the main page with a flash message describing the action the the user has just make.
+9. Limiting Acces:
+   - ![Info Message](static/images/screenshots/login_message_info.png)
+   If user is not currently logged in and try to access any page or functionality that require to be logged in, the user will be redirect to the login page with a message asking the user to login to gain access to the page.
 
 # Deployment
 
