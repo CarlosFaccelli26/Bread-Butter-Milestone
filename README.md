@@ -82,7 +82,7 @@ Project was tested on validators online such as:
     - **Be able to see some of the sandwiches on the main page**
       - To navigate through the main page it will not be required to be logged in. The user will see a search form to find any sandwich that the user wants to look for. Scrolling down fill find a carousel displaying three sandwiches the some user has added, and last there will be displayed 8 sandwiches for the user to see. There will be a button that will change depends on the numbers of sandwiches that the website has, if there is 8 or less the button will display "*wanna add a sandwich?*" and if there is more than 8 the button will change the text to "*Wanna See More?*". Each button depends on the number of sandwiches will lead to a new page that will required to be logged in, so users that are not register or not logged in won't be able to see the content.
     - **Be able to add, delete or update sandwiches**
-      - Project handle all the [CRUD]() functionality wich are: *Create*, *Read*, *Update*, *Delete*. Users has to be logged in to realize any of these functionalities.
+      - Project handle all the [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality wich are: *Create*, *Read*, *Update*, *Delete*. Users has to be logged in to realize any of these functionalities.
         - **Create**: Create consist in create content to the project. In this case will be add sandiches to the website.
         This will be accomplish throught a form, once again the user has to be logged in to see the content. The form will have many fields to fill, these fields are key information of the sandwich that the users wants to add for example the name of the sandiwich, description, ingredients, image, duration etc... Once all the fields are filled if there is nothig wrong the sandwich will be added to the website and will be visible on the main page if there is no more than 8 sandwiches or in the other case will be located in a new page called All sandwiches.
         - **Read**: Read is the ability to read the content stored on the database and displyed on the website in a nice way.
@@ -164,14 +164,16 @@ Project was tested on validators online such as:
    If user is not currently logged in and try to access any page or functionality that require to be logged in, the user will be redirect to the login page with a message asking the user to login to gain access to the page.
 
 # Deployment
-Project was stored on [GitHub]() and deploy on [Heroku](). This change due the previous milestone project is due [GitHub]() does not support backend code however [Heroku]() it allows to deploy code base on backend.
-First of all I created a repo on [GitHbu]() as i show in the next picture.
-![New Github Repo]()
-Once the repo is created we create a new app on [Heroku]():
+Project was stored on [GitHub](https://github.com/) and deployed on [Heroku](https://www.heroku.com/). This change due the previous milestone project is due [GitHub](https://github.com/) does not support backend code however [Heroku](https://www.heroku.com/) it allows to deploy code base on backend.
+First of all I created a repo on [GitHbu](https://github.com/) as i show in the next picture.
+![New Github Repo](static/images/screenshots/new_repo.png)
+After this step we should add information about the repository for example name, template etc..
+![New Github Repo 1](static/images/screenshots/new_repo1.png)
+Once the repo is created we create a new app on [Heroku](https://www.heroku.com/):
 ![Creating New App](static/images/screenshots/creating_new_app.png)
 After we created the app, we must choose the region that we are currently living in and the name of the app:
 ![Region and Name](static/images/screenshots/app_and_region.png)
-After we create the app give a name and provide the region that we are currently in we'll find a dashboard in which the first step is to connect the app with the repo on [GitHub]():
+After we create the app give a name and provide the region that we are currently in we'll find a dashboard in which the first step is to connect the app with the repo on [GitHub](https://github.com/)(To allow this step to work heroku will need some specific files Procfile and requirements.txt wich were created on python file):
 ![GitHub Connect](static/images/screenshots/connect_github_repo.png)
 We must be sure that the name that we include to connect the github repo match with name of the repo on github otherwise it won't find any repo with the name provided:
 ![Github Connect 1](static/images/screenshots/connect_github_repo1.png)
@@ -185,5 +187,6 @@ After clicking on settings we scroll down until we find a button, if we click on
   2. Flask Paginate [Darilli Games](https://github.com/DarilliGames/flaskpaginate/blob/master/app.py)
   3. Back to top button [W3S School](https://www.w3schools.com/howto/)
   4. Animations [CSS Tricks](https://www.html-code-generator.com/css/animation-generator)
-  4. Thanks to my mentor [Rahul]()
+  5. Thanks to my mentor [Rahul](https://codeinstitute.net/)
+  6. [Stack Overflow](https://stackoverflow.com/), underline with effect on navbar 
   
