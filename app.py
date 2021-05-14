@@ -10,7 +10,7 @@ from flask_paginate import Pagination, get_page_args
 from flask_wtf import FlaskForm
 from wtforms import (
     StringField, PasswordField,
-    SubmitField, SelectField,
+    SubmitField,
     IntegerField, TextAreaField)
 from wtforms.validators import (
     DataRequired, Email, EqualTo, Length, ValidationError)
@@ -125,13 +125,8 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Log in')
 
 
-# form to add sandwich 
+# form to add sandwich
 class AddSandwichForm(FlaskForm):
-    # sandwich_category = SelectField(
-    #     'Sandwich Category', choices=[
-    #         (None, 'Select an Option'),
-    #         ('Gluten Free', 'Gluten Free'),
-    #         ('Vegetarian', 'Vegetarian')])
     sandwich_name = StringField(
         'Sandwich Name',
         validators=[DataRequired(),

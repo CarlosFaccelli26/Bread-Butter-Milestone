@@ -67,10 +67,12 @@ Project was tested on validators online such as:
     - ![Add Sandwich](static/images/screenshots/add_sandwich.png)
     - ![Single Sandwich](static/images/screenshots/single_sandwich.png)
     - ![Edit Sandwich](static/images/screenshots/edit_sandwich.png)
-  - [CSS Validator]()
-    - [View]()
-  - [Javascript Validator]()
-    - [View]()
+  - [CSS Validator](http://jigsaw.w3.org/css-validator/)
+    - ![CSS](static/images/screenshots/css.png)
+  - [Javascript Validator](https://jshint.com/)
+    - ![Javascript](static/images/screenshots/javascript.png)
+  - [PEP8](http://pep8online.com/)
+    - ![Python](static/images/screenshots/python.png)
 
 # Testing UX Stories
 1. As a First costumer:

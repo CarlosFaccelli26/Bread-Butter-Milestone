@@ -31,7 +31,7 @@ function off() {
 }
 
 // carousel
-var myCarousel = document.querySelector('#myCarousel')
+var myCarousel = document.querySelector('#myCarousel');
 var carousel = new bootstrap.Carousel(myCarousel, {
   interval: 2000,
   wrap: true
@@ -39,18 +39,18 @@ var carousel = new bootstrap.Carousel(myCarousel, {
 
 // Validate Select element on forms
 (function () {
-  'use strict'
+  'use strict';
 
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
+  var forms = document.querySelectorAll('.needs-validation');
 
   // Loop over them and prevent submission
   Array.prototype.slice.call(forms)
     .forEach(function (form) {
       form.addEventListener('submit', function (event) {
         if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
+          event.preventDefault();
+          event.stopPropagation();
         }
 
         form.classList.add('was-validated')
