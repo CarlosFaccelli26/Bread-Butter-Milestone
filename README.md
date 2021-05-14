@@ -1,7 +1,8 @@
 # Bread And Butter **Milestone Project**
+![Mock Up](static/images/screenshots/mockup.png)
 
-You can see the live project [Here]()
-Bread and Butter is a project which function is to create update delete and read [CRUD]() functionality.
+You can see the live project [Here](https://bread-and-butter-milestone.herokuapp.com/)
+Bread and Butter is a project which function is to create update delete and read [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality.
 The idea is based on my work, currently I'm working in a Spar more especific in the deli sector, where I prepare sandwiches for costumers among others stuff.
 
 # User Experience
