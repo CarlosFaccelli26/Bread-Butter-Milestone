@@ -24,34 +24,34 @@ The idea is based on my work, currently I'm working in a Spar more especific in 
 
 # Technologies and Libraries
   - **Technologies Used**
-    1. [HTML]()
+    1. [HTML](https://en.wikipedia.org/wiki/HTML)
         - Used to create the content of the website.
-    2. [CSS]()
+    2. [CSS](https://en.wikipedia.org/wiki/CSS)
         - Used to give the attractive design of the website.
-    3. [JavaScript]()
+    3. [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
         - Used to make the website interactive.
-    4. [Python]()
+    4. [Python](https://en.wikipedia.org/wiki/Python_%28programming_language%29)
        - Used to handle the backend of the webiste
-    5. [MongoDb]()
+    5. [MongoDb](https://www.mongodb.com/1)
        - Database to store information about users and sandwiches that has been added
   - **Libraries Used**
-    1. [Boostrap]()
+    1. [Boostrap](https://getbootstrap.com/)
         - Userd To create a nice layout clear layout
-    2. [Font Awesome]()
+    2. [Font Awesome](https://fontawesome.com/)
         - Used to create a more attractive typography
-    3. [Flask]()
+    3. [Flask](https://flask.palletsprojects.com/en/2.0.x/)
         - Framework that works with python, all project is based on Flask
-    4. [Flask Login]()
+    4. [Flask Login](https://flask-login.readthedocs.io/en/latest/)
         - Dependency of Flask. Used to handle log in functionality
-    4. [Heroku]()
+    4. [Heroku](https://www.heroku.com/)
         - Platform used to deploy the project
-    5. [Git]()
+    5. [Git](https://git-scm.com/)
         - Used to version control of the project
-    6. [GitHub]()
+    6. [GitHub](https://github.com/)
         - Used to stored the project
-    7. [Balsamiq]()
+    7. [Balsamiq](https://balsamiq.com/)
        - Used to create the mockup which will be the base of the live project
-    8. [Flask WTF]()
+    8. [Flask WTF](https://flask-wtf.readthedocs.io/en/stable/)
        - Used to create forms on python and rendering on the templates.
 
 # Features
@@ -60,8 +60,13 @@ The idea is based on my work, currently I'm working in a Spar more especific in 
 
 # Testing
 Project was tested on validators online such as:
-  - [HTML Validator]()
-    - [View]()
+  - [HTML Validator](https://validator.w3.org/)
+    - ![Index](static/images/screenshots/index.png)
+    - ![Login](static/images/screenshots/login.png)
+    - ![Register](static/images/screenshots/register.png)
+    - ![Add Sandwich](static/images/screenshots/add_sandwich.png)
+    - ![Single Sandwich](static/images/screenshots/single_sandwich.png)
+    - ![Edit Sandwich](static/images/screenshots/edit_sandwich.png)
   - [CSS Validator]()
     - [View]()
   - [Javascript Validator]()
