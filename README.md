@@ -59,6 +59,7 @@ The idea is based on my work, currently I'm working in a Spar more especific in 
     8. [Flask WTF](https://flask-wtf.readthedocs.io/en/stable/)
        - Used to create forms on python and rendering on the templates.
     9. [Am i Responsive](http://ami.responsivedesign.is/#)
+       - Used to create a mockup. to add on readme.md file
 
 # Features
   1. Responsive on all devices
