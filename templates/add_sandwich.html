@@ -7,6 +7,11 @@ Add Sandwich
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <h2 class="text-center py-3 text-bold">Add you greatest sandwihch!</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <form class="needs-validation" method="POST" action="{{ url_for('add_sandwich') }}">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">

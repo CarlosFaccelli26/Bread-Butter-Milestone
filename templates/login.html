@@ -7,7 +7,12 @@ Sign In
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form method="POST" action="">
+                <h2 class="text-center py-3 text-bold">Don't wait any longer. Log in now!</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form method="POST" action="{{ url_for('login') }}">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
                         <legend>Log In</legend>

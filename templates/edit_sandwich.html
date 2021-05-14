@@ -7,6 +7,11 @@ Edit Sandwich
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <h2 class="text-center py-3 text-bold">Improve your best sandwich!</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <form method="POST" action="{{ url_for('edit_sandwich', sandwich_id=sandwich._id) }}">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
