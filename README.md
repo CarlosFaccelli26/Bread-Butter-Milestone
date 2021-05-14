@@ -54,6 +54,7 @@ The idea is based on my work, currently I'm working in a Spar more especific in 
        - Used to create the mockup which will be the base of the live project
     8. [Flask WTF](https://flask-wtf.readthedocs.io/en/stable/)
        - Used to create forms on python and rendering on the templates.
+    9. [Am i Responsive](http://ami.responsivedesign.is/#)
 
 # Features
   1. Responsive on all devices
