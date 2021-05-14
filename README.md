@@ -21,7 +21,11 @@ The idea is based on my work, currently I'm working in a Spar more especific in 
 # Design
   * **Color Scheme**
     - Main colors used throught the website are white, black, and orange
-    - Font used:
+    - Font used: Montserrat from fontawesome
+    - Desktop wireframe:
+      - [Desktop](static/images/balsamiq/desktop_view_project.pdf)
+    - Mobile:
+      - [Mobile](static/images/balsamiq/mobile_view.pdf)
 
 # Technologies and Libraries
   - **Technologies Used**
