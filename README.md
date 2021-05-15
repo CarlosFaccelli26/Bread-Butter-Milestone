@@ -109,6 +109,17 @@ Project was tested on validators online such as:
 # Testing Project
   - All project has been tested manually for me and friends which I share the link of the website.
 1. Main Page:
+   - First thing to notice is that links on the navbar will change depends if the user is logged in or not as I show in the next pictures
+   ![Home Logout](static/images/screenshots/home_logout.png)
+   In this picture we can see we have three links, home link will never change since can been seing for any user log in or log out. In this case user is not login on the website wich means the two remining links will be for register in case that the user is not register or log in in case that the user is already register.
+   ![Home Login](static/images/screenshots/home_login.png)
+   As we can see, we have differents links on the navbar. As i worte before home link won't change. The new two links are add sandwich which will lead the user to a form to add a sandwich, and log out link, which will close the session.
+   ![Home Button Change](static/images/screenshots/home_button_less_than_8.png)
+   Scrolling down the main page we find a carousel which will display up until 3 sandwiches added by randome users. In the picture we can see two sandwiches due there is only two sandwiches added at that moment.
+   Each sandwich card will be a link that if the user clicks will lead to the description of that particular sandwich.
+   Last but not least we have a button, wich will change if there is more than 8 sandwiches. Currently the button will lead the user to a form to add a new sandwich.
+   ![Home Button Change 2](static/images/screenshots/home_button_more_than_8.png)
+   As we can see now we have more than 8 sandwiches so the button will change to the text of **wanna see more**. This button will lead the user to the page where all the sandwiches are stored.
 2. Login Page:
    - ![Login Template](static/images/screenshots/login_template.png)
    ![Login Temaplate 1](static/images/screenshots/login_template1.png)
@@ -137,7 +148,7 @@ Project was tested on validators online such as:
    ![Check Errors3](static/images/screenshots/add_sandwich_check3.png)
    ![Check Errors4](static/images/screenshots/add_sandwich_check4.png)
    ![Check Errors5](static/images/screenshots/add_sandwich_check5.png)
-   ![Check Error6](static/images/screenshots/edd_sandwich_check6.png)
+   ![Check Error6](static/images/screenshots/add_sandwich_check6.png)
    All these images test how each input will behave if the input has not been filled. All field must be filled to submit the form and the sandwich will be added.
    ![Sandwich Added](static/images/screenshots/sandwich_added.png)
    If all the fields are filled and show no errors the form will redirect the user to the main page and show a message wich contain the text describing that the sandwich has been added.
@@ -169,6 +180,8 @@ Project was tested on validators online such as:
 9. Limiting Acces:
    - ![Info Message](static/images/screenshots/login_message_info.png)
    If user is not currently logged in and try to access any page or functionality that require to be logged in, the user will be redirect to the login page with a message asking the user to login to gain access to the page.
+10. All sandwiches:
+   - ![All Sandwiches]()
 
 # Deployment
 Project was stored on [GitHub](https://github.com/) and deployed on [Heroku](https://www.heroku.com/). This change due the previous milestone project is due [GitHub](https://github.com/) does not support backend code however [Heroku](https://www.heroku.com/) it allows to deploy code base on backend.
