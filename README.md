@@ -181,11 +181,15 @@ Project was tested on validators online such as:
    - ![Info Message](static/images/screenshots/login_message_info.png)
    If user is not currently logged in and try to access any page or functionality that require to be logged in, the user will be redirect to the login page with a message asking the user to login to gain access to the page.
 10. All sandwiches:
-   - ![All Sandwiches]()
+   - ![All Sandwiches](static/images/screenshots/all_sandwiches.png)
+   ![All Sandwiches 1](static/images/screenshots/all_sandwiches1.png)
+   As we can see all sandwiches template will consist in display all sandwiches. The leyout will be two columns. Max quantity of sandwiches per page was set to 10 sandwiches in case that there is more than 10 sandwiches we'll have links for pagination which allow the user to keep seeing more sandwiches. Each card title will be a link to see that specific sandwich.
+   ![Pagination](static/images/screenshots/all_sandwiches_pagination.png)
+   Here we see the pagination which lead us to the second page where we find one sandwich due in the previous page were displayed 10 sandwiches.
 
 # Deployment
 Project was stored on [GitHub](https://github.com/) and deployed on [Heroku](https://www.heroku.com/). This change due the previous milestone project is due [GitHub](https://github.com/) does not support backend code however [Heroku](https://www.heroku.com/) it allows to deploy code base on backend.
-First of all I created a repo on [GitHbu](https://github.com/) as i show in the next picture.
+First of all I created a repo on [GitHub](https://github.com/) as i show in the next picture.
 ![New Github Repo](static/images/screenshots/new_repo.png)
 After this step we should add information about the repository for example name, template etc..
 ![New Github Repo 1](static/images/screenshots/new_repo1.png)
