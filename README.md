@@ -206,6 +206,19 @@ Once we connect the github repo with heroku we can click on settings.
 After clicking on settings we scroll down until we find a button, if we click on that button it will reveal some variables that we need to fill up with the variables that we provide in the code of the project for example: Secret Key for flask, name of the database, the URI etc....
 ![Configuration Variables](static/images/screenshots/configuration_of_variables.png)
 
+**Cloning repository**
+* *Cloning from github*
+    - First of all we log in in [GitHub](https://github.com/) and find the repo that we want to clone in this case will be [Bread and butter](https://github.com/CarlosFaccelli26/Bread-Butter-Milestone), chose the option of code and then open with github as I show the next picture
+      ![Github cloning](static/images/screenshots/github-cloning.png)
+    - After click on that button a window will pop up asking us if we want to open with github desktop_view_project
+      ![Github cloning 2](static/images/screenshots/github-cloning-2.png)
+      Once this step is done a new window will open with a few options
+      ![Github cloning 3](static/images/screenshots/github-cloning3.png)
+    - Finally the project will be clone in our desktop
+      ![Githbu cloning 4](static/images/screenshots/github-cloning4.png)
+    - Once we have cloned the project we need to install all the requirements that the project is based on to do this we need to type in the terminal: **pip3 install requirements.txt** and all the dependencies used on the project will be installed.
+
+
 # Credits
   1. Flask Login, Flask Wtf, Modal [Corey Schafer]()
   2. Flask Paginate [Darilli Games](https://github.com/DarilliGames/flaskpaginate/blob/master/app.py)
@@ -213,4 +226,6 @@ After clicking on settings we scroll down until we find a button, if we click on
   4. Animations [CSS Tricks](https://www.html-code-generator.com/css/animation-generator)
   5. Thanks to my mentor [Rahul](https://codeinstitute.net/)
   6. [Stack Overflow](https://stackoverflow.com/), underline with effect on navbar 
+  8. Card animation on index.html [Hover Effect](https://codepen.io/nxworld/pen/ZYNOBZ)
+  9. [favicon](https://favicon.io/)
   
