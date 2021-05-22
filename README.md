@@ -1,26 +1,30 @@
 # Bread And Butter **Milestone Project**
 ![Mock Up](static/images/screenshots/mockup.png)
 
-You can see the live project [Here](https://bread-and-butter-milestone.herokuapp.com/)
-Bread and Butter is a project which function is to create update delete and read [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality.
-The idea is based on my work, currently I'm working in a Spar more especific in the deli sector, where I prepare sandwiches for costumers among others stuff.
+You will be able to enjoy the live project following the next [link](https://bread-and-butter-milestone.herokuapp.com/)
+Bread and Butter is a project where you will have the function to create, update, delete, and read. [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality.
+The idea was born through my own experience. All the project is completly based in my currently employ, I'm working in a Spar as a deli assistant. What I have to do daily, it is to prepare not only sandwiches but also other stuff as salads or breakfasts for de costumers. Because of that my knoledge about sandwiches and different combinations of ingredients is quite extense. Along this project I really want to show what I do for leaving, from a different point of view; from a website being completly focus in the topic. 
 
 # User Experience
 ## User Stories
   * **As a User of the website**
-    - I want to have an easily navigaton
+    - I want to have an easily navigaton.
+    - I want to be able to share my recipes with other users. However will be quite important to have the posibility to delete or edit my own recipes.
+    - I want to have the posibility of enjoying the shared recipes by other users. 
+    - I would like to be able to log in and log out just with one click. 
 
   * **As a First costumer**
-    - I want the ability to register and login easely
-    - Be able to see some of the sandwiches on the main page
-    - Be able to add, delete or update sandwiches
+    - I would like to register my account as a new user easily withouth any trouble. 
+    - It will be a good option, to have the posibility to preview some sandwiches and how the website will be working in the future If I decide to register an account.
+    - It will be mandatory to have an actractive main page.  
 
-  * As a Owner
-    - Have a eye catching website
+  * **As a Owner**
+    - Be in charge to always have an eye catching website.
+    - Be able to help with any issue the user could find. 
 
 # Design
   * **Color Scheme**
-    - Main colors used throught the website are white, black, and orange
+    - The main colours being used along the website design are white, black, and orange.
     - Font used: Montserrat from fontawesome
     - Desktop wireframe:
       - [Desktop](static/images/balsamiq/desktop_view_project.pdf)
@@ -30,43 +34,43 @@ The idea is based on my work, currently I'm working in a Spar more especific in 
 # Technologies and Libraries
   - **Technologies Used**
     1. [HTML](https://en.wikipedia.org/wiki/HTML)
-        - Used to create the content of the website.
+        - Used to create the whole content of the website.
     2. [CSS](https://en.wikipedia.org/wiki/CSS)
-        - Used to give the attractive design of the website.
+        - Used to create an eye catching website whith an attractive design.
     3. [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
         - Used to make the website interactive.
     4. [Python](https://en.wikipedia.org/wiki/Python_%28programming_language%29)
-       - Used to handle the backend of the webiste
+       - Used to handle the backend of the webiste.
     5. [MongoDb](https://www.mongodb.com/1)
-       - Database to store information about users and sandwiches that has been added
+       - Database to store information about users and sandwiches which have been added.
   - **Libraries Used**
     1. [Boostrap](https://getbootstrap.com/)
-        - Userd To create a nice layout clear layout
+        - Used to create a nice and a clear layout.
     2. [Font Awesome](https://fontawesome.com/)
-        - Used to create a more attractive typography
+        - Used to create an attractive typography.
     3. [Flask](https://flask.palletsprojects.com/en/2.0.x/)
-        - Framework that works with python, all project is based on Flask
+        - Framework that works with python. All the project is based on Flask.
     4. [Flask Login](https://flask-login.readthedocs.io/en/latest/)
-        - Dependency of Flask. Used to handle log in functionality
+        - Dependency of Flask. Used to handle log in and log out functionality.
     4. [Heroku](https://www.heroku.com/)
-        - Platform used to deploy the project
+        - Platform used to deploy the project.
     5. [Git](https://git-scm.com/)
-        - Used to version control of the project
+        - Used to version control of the project.
     6. [GitHub](https://github.com/)
-        - Used to stored the project
+        - Used to store the project.
     7. [Balsamiq](https://balsamiq.com/)
-       - Used to create the mockup which will be the base of the live project
+       - Used to create the mockup which will be the base of the live project.
     8. [Flask WTF](https://flask-wtf.readthedocs.io/en/stable/)
        - Used to create forms on python and rendering on the templates.
     9. [Am i Responsive](http://ami.responsivedesign.is/#)
-       - Used to create a mockup. to add on readme.md file
+       - Used to create a mockup to add on readme.md file.
 
 # Features
-  1. Responsive on all devices
-  2. Description Section by Section
+  1. This project is completly responsive on all devices.
+  2. We will be describing the project section by section.
 
 # Testing
-Project was tested on validators online such as:
+Bread and Butter project has been tested on validators online such as:
   - [HTML Validator](https://validator.w3.org/)
     - ![Index](static/images/screenshots/index.png)
     - ![Login](static/images/screenshots/login.png)
@@ -82,29 +86,43 @@ Project was tested on validators online such as:
     - ![Python](static/images/screenshots/python.png)
 
 # Testing UX Stories
-1. As a First costumer:
-   - **I want the ability to register and login easely**
-     - The website provides an easy process to log in or register. With just a fews fields to fill the user will be available to login or register.
-       Once the user complete the registration form if it is correct will display an alert with the message of "**Registration successfully. You are able to login.**". Same process for the login page, there will be a form which the user has to fill, if all the details are correct the user will have the ability to navigate through the website and add content to the project if he desire.
-    - **Be able to see some of the sandwiches on the main page**
-      - To navigate through the main page it will not be required to be logged in. The user will see a search form to find any sandwich that the user wants to look for. Scrolling down fill find a carousel displaying three sandwiches the some user has added, and last there will be displayed 8 sandwiches for the user to see. There will be a button that will change depends on the numbers of sandwiches that the website has, if there is 8 or less the button will display "*wanna add a sandwich?*" and if there is more than 8 the button will change the text to "*Wanna See More?*". Each button depends on the number of sandwiches will lead to a new page that will required to be logged in, so users that are not register or not logged in won't be able to see the content.
-    - **Be able to add, delete or update sandwiches**
-      - Project handle all the [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality wich are: *Create*, *Read*, *Update*, *Delete*. Users has to be logged in to realize any of these functionalities.
-        - **Create**: Create consist in create content to the project. In this case will be add sandiches to the website.
-        This will be accomplish throught a form, once again the user has to be logged in to see the content. The form will have many fields to fill, these fields are key information of the sandwich that the users wants to add for example the name of the sandiwich, description, ingredients, image, duration etc... Once all the fields are filled if there is nothig wrong the sandwich will be added to the website and will be visible on the main page if there is no more than 8 sandwiches or in the other case will be located in a new page called All sandwiches.
-        - **Read**: Read is the ability to read the content stored on the database and displyed on the website in a nice way.
-        On this website all users logged in or not will be available to see sandwiches, in case that the user wants to see all sandwiches added from different users the user has to be logged in.
+1. As a user of the website:
+     **I want to have an easily navigaton**
+    The Website has been designed thinking since the very first moment about the user experience, because of that you will find an easy navigation. Each button will have a descriptive text that will give to the user the facility to understand what will be happening after clicking on the button. The Bread and Butter Website does not have any unnecessary complexity to navigate as we are looking for the confort of the users avoiding the frustration feelings. 
+
+   - **I want to be able to share my recipes, deleted them or edited If I need**
+    - As we mentioned before, all the project is  handled by [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functionality where will find the different options: *Create*, *Read*, *Update*, and *Delete*. Neverthelss is mandatory for the user to log in If they want to be able to manage some these functionalities. 
+        - **Create**: This function will give you the posibility to add some info into the website. For example in the case of Bread and Butter, you will be able to add a sandwich. The user will give all the information about the sandwich throught  the form, which has different fields to fill following the goal of sharing the key information about the sandwich, such name, brief description, ingredients, or image, with the other users. As soon as all the fields are done, If there is nothing wrong, the sandwich will be added to the website straigh away being visible on the main page (If there are no more than 8 sandwiches) or in a section called All sandwiches.
+        - **Read**: This function give you the ability to read the content storage on the database at the same time you will be able to displayed on the website nicely. 
+        On this website all users, logged in or not. will be available to see a few sandwiches to have a preview of the website functionality. If they want to see all the recipes shared, they will need to register or log in If they already have an account.
         Users can see each sandwiches if they want. But only if they are logged in.
-        - **Update**: Update will be the ability to change any info about the sandwich that the user created. Users won't be able to change info of a sandwich that they didn't add, the only user capable of change info is the one who created it. Once again will be a form with all the details already displayed on the form so the user doesn't have to fll each of the field again. And from there the user decide wich field wants to change or add more info to the field.
-        - **Delete**: Delete like the word says, gives the user the capacity to delete a sandwich. Again only the user who created the sandwich will be able to delete it. 
+        - **Update**: Update will give you the ability to change any information about the sandwich created by the user. Users won't be able to change details of any sandwich created by a different user, they will have the posibility to change the info of their own creations. If they decided to edit their recipes they just will need to rewrite the fields of the form mentioned before, that they want to modify.
+        - **Delete**: Delete like the word says, gives the user the capacity to delete a sandwich. As we mentioned before, the user will be able just to delete their own creation. 
 
-2. As a Owner
-  - **Have a eye catching website**
-    - The project has a nice contrast of colors it goes between black orange and white. It gives a good appearance and a nice looking. It has a few animations so it doesn't feel like a static page with no movements.
+   - **I want to enjoy the recipes of other users**
+       Once you have an account and you are in, you will be able to see all the sandwiches recipes. However won't be possible to modify the creations added by other users. 
 
-3. As a User of the website
-  - **I want to have an easily navigaton**
-    - Website has an easy navigation. Each button will have a descriptive text that will give the user a hint of what the user will be able to do after the user clicks on the button. Website doesn't have any unnecessary complexity to navigate so the user won't be fustrated to looking for something and wasting time.
+   - **I would like to be able to log in and log out just with one click**
+     - The website provides a very easy process to log in and log out. Once your account is registered in the system, you will just need to enter your usser name and your password to Log in. You will be able to Log out just clicking on the proper botton.
+
+   
+2. As a firts customer
+   - **I would like to register my account without any trouble**
+      If you want to register your account as a new user, you will just need to complete all the fields of a form. Once the user complete the registration form, If there are not mistakes, the website will display an alert with the following message: "**Registration successfully. You are able to login.**". 
+      You will be ready to enjoy Bread and Butter adding sandwiches or just catching some ideas for your next dinner. 
+
+   - **Be able to have a preview of the website**
+       Since the first moment you start surfing the website you will find different texts where you have some hints about what you can find or what you can do in Bread and Butter. Because of that the first customer will Know since that moment If this website could fit his interests. However the main page would be attractive enought to catch his attention. 
+
+   - **I would like to find an attractive main page**
+      You will see how it is not mandatory to Log in just to navigate through the main page, so the first user who is thinking to register an account will have the posibility to have a brief view and understanding of how the website will works. To make the main page quite attractive the same patron of colours have been followed. At the same time the first user will be able to enjoy the carousel, where a maximun of 8 sandwiches will be displayed. The bottons on the main page have the posibility to change deppending of the amount of sandwiches have been added to the website. If there are not 8 yet, the text the first user will see is the next one: "*wanna add a sandwich?*". Nevertheless If there are more than 8 sandwiches already in the website you will find the following text:"*Wanna See More?*". Thanks to they way this questions have been popped the main page is not only attractivebut also interactive with the First user. 
+
+3. As a owner
+   - **Have a eye catching website**
+      The project has been designed thinking in every single detail because of that you can find a nice contrast of colours between black, orange and white. Bread and Butter not only is working so goo but also has a nice looking catching the attention of the user. At the same time to do not make the user feel bored, there are some animations to avoid a static website. 
+
+   - **Be able to help with any issue**
+      As you will be able to see once yoou get into the website, all the social media are located in the footer. Thanks to this conection the user will be able to get in touch with the owner of the website through Instagram, Facebook or Twiter. 
 
 # Testing Project
   - All project has been tested manually for me and friends which I share the link of the website.
