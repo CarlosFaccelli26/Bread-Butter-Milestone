@@ -125,41 +125,41 @@ Bread and Butter project has been tested on validators online such as:
       As you will be able to see once yoou get into the website, all the social media are located in the footer. Thanks to this conection the user will be able to get in touch with the owner of the website through Instagram, Facebook or Twiter. 
 
 # Testing Project
-  - All project has been tested manually for me and friends which I share the link of the website.
+  - All the parts of the project have been tested manually for me, friends and family after sharing the link of the website with them to have different points of view and opinions.
 1. Main Page:
-   - First thing to notice is that links on the navbar will change depends if the user is logged in or not as I show in the next pictures
+   - As you can see, the first thing you may notice are the links on the navbar. They will change depending of the user; if the user is logged in or not the design would be different as the picture below is showing:
    ![Home Logout](static/images/screenshots/home_logout.png)
-   In this picture we can see we have three links, home link will never change since can been seing for any user log in or log out. In this case user is not login on the website wich means the two remining links will be for register in case that the user is not register or log in in case that the user is already register.
+   In this picture we can appreciate three different links. First of all, we need to know that the home link will never change because everybody will be able to see it, does not matter if the user is log in or not. In this case user is not login on the website, because of that we can see the two links as a reminder. The user will need to register if he never did that before, or just to log in if the user already has an account. 
    ![Home Login](static/images/screenshots/home_login.png)
-   As we can see, we have differents links on the navbar. As i worte before home link won't change. The new two links are add sandwich which will lead the user to a form to add a sandwich, and log out link, which will close the session.
+   As we mentioned before, there are differents links on the navbar. One more time, home link won't change. However, the new two links are on one hand, add a sandwich and on the other hand a log out link. The add sandwich link bring the user to a form to complete the sandwich details. The log out link will close the session. 
    ![Home Button Change](static/images/screenshots/home_button_less_than_8.png)
-   Scrolling down the main page we find a carousel which will display up until 3 sandwiches added by randome users. In the picture we can see two sandwiches due there is only two sandwiches added at that moment.
-   Each sandwich card will be a link that if the user clicks will lead to the description of that particular sandwich.
-   Last but not least we have a button, wich will change if there is more than 8 sandwiches. Currently the button will lead the user to a form to add a new sandwich.
+   Scrolling down the main page we find a carousel where you will see a maximun of 3 sandwiches displayed. Theses sandwiches have been added by randome users. In the below picture we can see just two sandwiches due there were only two sandwiches added at that moment.
+   You will be able to find a link per each sandwich card. If the user clicks on that link, he will be able to read the description of the selected sandwich. 
+   Last but not least we have a button. The button will change if there are more than 8 sandwiches. Currently the button will lead the user to a form to add a new sandwich.
    ![Home Button Change 2](static/images/screenshots/home_button_more_than_8.png)
-   As we can see now we have more than 8 sandwiches so the button will change to the text of **wanna see more**. This button will lead the user to the page where all the sandwiches are stored.
+   As we can see in this picture, we have now more than 8 sandwiches, because of that, the button will change to the text of **wanna see more**. This button will lead the user to the page where all the sandwiches are stored. You need to register If you want to have acces to this section.
 2. Login Page:
    - ![Login Template](static/images/screenshots/login_template.png)
    ![Login Temaplate 1](static/images/screenshots/login_template1.png)
-   As we can see the Login page will consist in a simple form with a backgorund of black and white, playing with the color of text to give a nice contrast.
+   Thanks to the picture, we can se how the Login page will consist in a simple form with a black and white backgorund. Following the design, we played with the colour of the text to make a nice and eyecathing  contrast.
    ![Valid Login](static/images/screenshots/valid_login.png)
-   If user type the correct credentials will be redirect to the main page with a message letting know the user that he was successfully logged in.
+   On one hand, along this picture we can see how If the user type the correct credentials will be redirected to the main page with a message letting him know that he was successfully logged in.
    ![Invalid Login](static/images/screenshots/invalid_login.png)
-   If user use a credentials that doesn't exist or just an typing error the form won't be submitted and the user will be redirect to the login page with a massage describing that username or password are incorrect and he must try again.
+   On the other hand, as we can see in this picture, If the user fill the fields with unexisted credentials or he has just a typing mistake; the form won't be submitted and the user will be redirect to the login page with a message describing that username or password are incorrect and he must try again.
 3. Register Page:
    - ![Register Tempalte](static/images/screenshots/register_template.png)
    ![Register Template 1](static/images/screenshots/register_template2.png)
-   Register page wil be basicly the same layout than login page, same contrast between black orange and white.
+   Register page will be basically the same layout than login page, that means we will find the same design and the same contrast in black orange and white.
    ![Check Errors](static/images/screenshots/register_check.png)
-   If user doesn't accomplish the pattern of the input field, the form when submitted will give an error displaying the error in a message with a red text. Same if the user try to register with a email already in use in the database, it is not possible to register with an email already registered.
+   If user doesn't accomplish the pattern of the input field, the form will show an error once the user tries to submited. The form will display the error in a message with a red text. Same if the user try to register with an email being use already in the database. As is obviously, it is not possible to register  an email that it is already registered.
    ![Check errors 1](static/images/screenshots/register_check1.png)
-   If password doesn't match the form won't be submitted and the user won't be register. Password must match to user be able to register on the webiste.
+   It is important to say that as we can see in the picture, If the password doesn't match, the form won't be submitted and the user won't be registered. It is mandatory a match between the password and the email registered on the webiste.
    ![Register Success](static/images/screenshots/register_success.png)
-   Once the user has filled all the inputs and inputs are correct and no errors are showed the user will be successfully registered. User will be redirect to the login page with a message describing that registration was a success.
+   Once the user has filled all the inputs, If they are correct and there are not errors showed to the user, It will be a succesfull registration. User will be redirect to the login page with a message describing that registration was a success.
 4. Adding sandwich:
    - ![Add Sandwich Template](static/images/screenshots/add_sandwich_template.png)
    ![Add Sandwich Tempalte 1](static/images/screenshots/add_sandwich_template1.png)
-   Add sandwich page will consist in a form with pretty much the same layout than register and login page. The only different will be that the form will have more fields to fill up.
+   As we can see in the picture, the "Add sandwich page" will consist in a form with a pretty similar layout than the registration form and also with the login page. The only different we might appreciate, it will be the number of fields the user will need to fill in the form, as there are more details to specify than the others forms..
    ![Check Errors](static/images/screenshots/add_sandwich_check.png)
    ![Check Errors1](static/images/screenshots/add_sandwich_check1.png)
    ![Check Errors2](static/images/screenshots/add_sandwich_check2.png)
@@ -167,43 +167,43 @@ Bread and Butter project has been tested on validators online such as:
    ![Check Errors4](static/images/screenshots/add_sandwich_check4.png)
    ![Check Errors5](static/images/screenshots/add_sandwich_check5.png)
    ![Check Error6](static/images/screenshots/add_sandwich_check6.png)
-   All these images test how each input will behave if the input has not been filled. All field must be filled to submit the form and the sandwich will be added.
+   All these images test how each input will behave if the input has not been filled. All field must be filled to submit the form properly and be able to add the sandwich.
    ![Sandwich Added](static/images/screenshots/sandwich_added.png)
-   If all the fields are filled and show no errors the form will redirect the user to the main page and show a message wich contain the text describing that the sandwich has been added.
+   If all the fields are filled properly without errors, the form will redirect the user to the main page and show a message saying the sandwich was added correctly. 
 5. Edit Sandwich:
    - ![Edit Sandwich Template](static/images/screenshots/edit_sandwich_template.png)
    ![Edit Sandwich Template1](static/images/screenshots/edit_sandwich_form.png)
-   Edit sandwich template will have a form same layout of add sandwich template. With the diffrerence of all the fills will be populated with the data that was used to add the sandwich, so the user won't waste time filling up all the fields again and then submit the form.
+   As we can see in the picture, the edit sandwich template will have a form with the same layout of add sandwich template. The main difference between this templates is that all the fills will be populated with the data that was used to add the sandwich, so the user won't waste time filling up all the fields again. Once the user edit the form he just need to submited again.  
    ![Edit Sandwich Success](static/images/screenshots/sandwich_updated_message.png)
-   Once the user has updated the sandwich the form will redirect the user to the sandwich tempalte with a message with a text describing the action that the user has realized.
+   Once the user has updated the sandwich, the form will redirect the user to the sandwich template with a message reminding him the action he already did. 
 6. Individual Sandwich:
    - ![Sandwich Template](static/images/screenshots/individual_sandwich.png)
-   Sandwich template will display a single sandwich with all the details of the sandwich. In these case the sandwich was created by the same user. This is because there is two buttons which give two different actions. One is to update the sandwich the other to delete it. Only to the user that has created the sandwich will appear the two buttons.
+   Sandwich template will display a single sandwich with all the details of the sandwich. In these case the sandwich was created by the same user. This is because there is two buttons which give two different actions. One is to update the sandwich meanwhile, the other button is to delete it. Pretty important to say that only for the author of the sandwich will appear the two buttons.
    ![Sandwich Template1](static/images/screenshots/individual_sandwich1.png)
-   As we can see in the page the two buttons doesn't appear, that is because the user didn't create the sandwich, for these reason user can't edit or delete the sandwich. If user type the route to edit or delete the sandwich the page will show an error [403](https://en.wikipedia.org/wiki/HTTP_403) customize. Next will be attached the screenshot will describe these error.
+   In the avobe picture we can see how in the page the two buttons doesn't appear, that is because the user didn't create the sandwich, for these reason user can't edit or delete the sandwich. If user type the route to edit or delete the sandwich the page will show an error [403](https://en.wikipedia.org/wiki/HTTP_403) customize. The below picture show this error. 
    ![Error Handler](static/images/screenshots/error_handler.png)
-   As we can see if the user try to delete or update a sandwich that the user hasn't created the page will show the error with a link to go back to the main page.
+   As we can see if the user try to delete or update a sandwich that the user hasn't created, the page will show the error with a link to go back to the main page.
 7. Search From:
    - ![Check Search Form](static/images/screenshots/check_search_input.png)
-   Search form is located on the main page at the bottom of the page, below the navbar. If user doesn't fill the input the form won't be submitted.
+   Search form is located on the top of the main page, just below the navbar. If user doesn't fill the input the form won't be submitted.
    ![Fail Results](static/images/screenshots/search_result_fail.png)
-   If user filled the form and submit it but the webiste doent't find the sandwich that the user is looking for the page will show a massage describing the there is no results for that search.
+   However, If the user filled the form and submit it but, the webiste doent't find the sandwich that the user is looking for, the page will show a message describing that there are not results for that search.
    ![Show Results](static/images/screenshots/show_search_results.png)
-   If user fill the input and the website has the sandwich that the user is looking for the website will display the sandwich bellow the carousel on the main page.
+   If user fill the input and the website has the sandwich that the user is looking for, the website will display the sandwich bellow the carousel on the main page.
 8. Delete Sandwich:
    - ![Modal](static/images/screenshots/modal_popup.png)
-   If user wants to delete the sandwich, if the user was the creator of the sandwich will be able to see two buttons, one for update and the other to delete. If user clicks on delete button a modal will popup with two buttons and a text asking the user if the user is sure about deleting the sandwich. The buttons will have the actions of delete the sandwich or close the modal.
+   If the user wants to delete his own sandwich, he will be able to do it. However, before that, the user will see two buttons, one for , and the other one to delete. If user clicks on delete button a modal will pop up with two buttons and a text asking the user if he is sure about deleting the sandwich. The buttons will have the actions of delete the sandwich or close the modal.
    ![Delete Success](static/images/screenshots/sandwich_deleted.png)
-   If the user deletes the sandwich user will be redirect to the main page with a flash message describing the action the the user has just make.
+   If the user deletes the sandwich, he will be redirect to the main page with a flash message describing the action the the user already made.
 9. Limiting Acces:
    - ![Info Message](static/images/screenshots/login_message_info.png)
    If user is not currently logged in and try to access any page or functionality that require to be logged in, the user will be redirect to the login page with a message asking the user to login to gain access to the page.
 10. All sandwiches:
    - ![All Sandwiches](static/images/screenshots/all_sandwiches.png)
    ![All Sandwiches 1](static/images/screenshots/all_sandwiches1.png)
-   As we can see all sandwiches template will consist in display all sandwiches. The leyout will be two columns. Max quantity of sandwiches per page was set to 10 sandwiches in case that there is more than 10 sandwiches we'll have links for pagination which allow the user to keep seeing more sandwiches. Each card title will be a link to see that specific sandwich.
+   As we can see in the pictures, "all sandwiches" template will consist in a display of all the sandwiches that have been created by different ussers. The leyout will be two columns. It is important to say that the Max quantity of sandwiches per page was set on 10 sandwiches so, just in case  there are more than 10 sandwiches, we will have links for pagination which allow the user to keep seeing more sandwiches. Each card title will be a link to see the specific sandwich.
    ![Pagination](static/images/screenshots/all_sandwiches_pagination.png)
-   Here we see the pagination which lead us to the second page where we find one sandwich due in the previous page were displayed 10 sandwiches.
+   Here we can see the pagination which lead us to the second page where we find one sandwich due in the previous page were displayed 10 sandwiches.
 
 # Deployment
 Project was stored on [GitHub](https://github.com/) and deployed on [Heroku](https://www.heroku.com/). This change due the previous milestone project is due [GitHub](https://github.com/) does not support backend code however [Heroku](https://www.heroku.com/) it allows to deploy code base on backend.
@@ -226,15 +226,15 @@ After clicking on settings we scroll down until we find a button, if we click on
 
 **Cloning repository**
 * *Cloning from github*
-    - First of all we log in in [GitHub](https://github.com/) and find the repo that we want to clone in this case will be [Bread and butter](https://github.com/CarlosFaccelli26/Bread-Butter-Milestone), chose the option of code and then open with github as I show the next picture
+    - First of all we log in in [GitHub](https://github.com/) and find the repo that we want to clone in this case will be [Bread and butter](https://github.com/CarlosFaccelli26/Bread-Butter-Milestone), chose the option of code and then open with github as I show the next picture:
       ![Github cloning](static/images/screenshots/github-cloning.png)
-    - After click on that button a window will pop up asking us if we want to open with github desktop_view_project
+    - After click on that button a window will pop up asking us if we want to open with github desktop_view_project.
       ![Github cloning 2](static/images/screenshots/github-cloning-2.png)
-      Once this step is done a new window will open with a few options
+      Once this step is done a new window will open with a few options:
       ![Github cloning 3](static/images/screenshots/github-cloning3.png)
-    - Finally the project will be clone in our desktop
+    - Finally the project will be clone in our desktop.
       ![Githbu cloning 4](static/images/screenshots/github-cloning4.png)
-    - Once we have cloned the project we need to install all the requirements that the project is based on to do this we need to type in the terminal: **pip3 install requirements.txt** and all the dependencies used on the project will be installed.
+    - Once we have cloned the project we need to install all the requirements that the project is based on. To do this, we just need to type in the terminal: **pip3 install requirements.txt** and all the dependencies used on the project will be installed.
 
 
 # Credits
