@@ -85,6 +85,12 @@ Bread and Butter project has been tested on validators online such as:
   - [PEP8](http://pep8online.com/)
     - ![Python](static/images/screenshots/python.png)
 
+# Mongo DB Database
+  - ![Sandwich design](static/images/screenshots/mongodb-1.png)
+  The database for sandwich that will be added on the project was design to have specific fields, such as name, description, images, ingredients, duration.
+  - ![Users design](static/images/screenshots/mongodb-2.png)
+  In the database will be store username, email, and password. This data stored in the database will be used for the user to login the page and create, update or delete content.
+
 # Testing UX Stories
 1. As a user of the website:
      **I want to have an easily navigaton**
